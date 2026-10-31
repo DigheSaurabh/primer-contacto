@@ -1,0 +1,14 @@
+# Core data and metrics
+pandas>=2.2
+numpy>=1.26
+# Optional: SQL on CSV files for the metrics layer
+duckdb>=1.0
+# App and charts
+streamlit>=1.38
+plotly>=5.22
+# Synthetic data
+faker>=26.0
+# Tests
+pytest>=8.0
+# Notebooks (local only)
+jupyter>=1.0
