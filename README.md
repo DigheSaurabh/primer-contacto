@@ -37,7 +37,8 @@ Google Forms & Sheets · Python (pandas, NumPy) · DuckDB (optional SQL layer) �
 primer-contacto/
 ├── app.py                  # Streamlit entry point (Week 4)
 ├── pages/                  # App pages (Week 4)
-├── generate_synthetic.py   # Synthetic data generator (Week 2)
+├── generate_synthetic.py   # Synthetic data generator
+├── intake/                 # Google Apps Script that builds the intake forms and sheet
 ├── validate.py             # Schema and data-quality checks (Week 2)
 ├── transform.py            # Wide → long stage-transition table (Week 3)
 ├── metrics.py              # One function per KPI (Week 3)
@@ -46,7 +47,10 @@ primer-contacto/
 ├── docs/
 │   ├── metrics.md          # Metrics dictionary (the contract)
 │   ├── schema.md           # Intake form fields and CSV schemas
-│   └── interviews.md       # De-identified teacher interview notes
+│   ├── interviews.md       # De-identified teacher interview notes
+│   ├── tutorial.md         # Set up, use and test the intake forms
+│   ├── status.md           # Where the project stands; updated every session
+│   └── decisions.md        # Decisions and why
 ├── notebooks/              # Metric exploration (Week 3)
 ├── tests/                  # pytest tests and fixtures
 └── powerbi/                # Power BI demo dashboard (Week 6)
@@ -64,6 +68,9 @@ pytest
 
 ## Privacy
 No client names, phone numbers, emails, handles or street addresses are collected anywhere: not in the forms, the Sheet, the app, the logs or this repository. Requests are identified only by a short ID. The app processes uploads in memory and stores nothing.
+
+## Intake forms
+Setup, daily use and a test checklist: [docs/tutorial.md](docs/tutorial.md).
 
 ## Metric definitions
 See [docs/metrics.md](docs/metrics.md).

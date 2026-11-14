@@ -3,7 +3,7 @@
 ## Form A: New request (one per request, under 2 minutes)
 | # | Field | Type | Options or rule |
 |---|---|---|---|
-| 1 | `request_id` | Short text (auto-suggested) | Date plus a letter, e.g. `2026-10-22-A` |
+| 1 | `request_id` | Assigned by the intake script | Received date plus a letter, e.g. `2026-10-22-A` |
 | 2 | `received_at` | Date and time | When the request arrived, not when it was logged |
 | 3 | `channel` | Single choice | Instagram DM; Linktree form; text message; email; phone call; in person; referral; other |
 | 4 | `request_type` | Single choice | Private session; small group; corporate session; school event; community event; workshop; class series; other |
@@ -16,7 +16,7 @@
 ## Form B: Stage update (one per movement, under 30 seconds)
 | # | Field | Type | Options or rule |
 |---|---|---|---|
-| 10 | `request_id` | Short text | Must match Form A |
+| 10 | `request_id` | Pick from a list of open requests | Must match Form A |
 | 11 | `stage` | Single choice | Replied; Quoted; Confirmed; Delivered; Invoiced; Paid; Lost |
 | 12 | `stage_at` | Date and time | When it happened |
 | 13 | `lost_reason` | Single choice, shown if Lost | No reply from client; declined price; scheduling conflict; went elsewhere; cancelled; other |

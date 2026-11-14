@@ -1,0 +1,402 @@
+request_id,received_at,channel,request_type,language,client_type,event_zip,replied_at,quoted_at,confirmed_at,delivered_at,invoiced_at,paid_at,lost_at,lost_reason,quoted_amount,note
+2025-11-18-A,2025-11-18 14:25,text_message,small_group,en,individual,,2025-11-18 20:19,2025-11-19 18:50,,,,,2025-12-02 05:06,no_reply_from_client,160.0,Group of 4 friends
+2025-11-18-B,2025-11-18 15:31,linktree_form,other,en,other,,2025-11-18 21:36,2025-11-19 11:10,,,,,2025-11-24 06:33,declined_price,90.0,
+2025-11-23-A,2025-11-23 10:46,email,corporate_session,en,company,,2025-11-24 16:30,2025-11-25 10:06,2025-11-26 06:00,2025-12-07 06:14,2025-12-08 09:00,2025-12-15 17:29,,,390.0,
+2025-11-24-A,2025-11-24 08:45,instagram_dm,private_session,en,individual,,2025-11-24 15:06,2025-11-25 00:01,2025-11-26 06:54,2025-11-28 16:12,,2025-11-30 13:36,,,80.0,
+2025-11-24-B,2025-11-24 10:05,linktree_form,private_session,both,individual,,2025-11-24 15:17,2025-11-25 19:44,2025-11-26 19:43,2025-12-08 10:50,,2025-12-08 15:18,,,120.0,
+2025-11-24-C,2025-11-24 14:30,instagram_dm,corporate_session,es,company,60616,2025-11-25 09:49,2025-11-25 23:59,2025-11-30 16:20,2025-12-04 01:18,2025-12-06 14:06,2025-12-13 22:08,,,490.0,Lunchtime session for a team
+2025-11-26-A,2025-11-26 12:16,instagram_dm,workshop,both,individual,,2025-11-27 00:31,2025-11-27 22:54,,,,,2025-12-09 22:53,scheduling_conflict,220.0,
+2025-11-27-A,2025-11-27 11:03,linktree_form,private_session,both,individual,,2025-11-28 02:52,2025-11-28 05:15,,,,,2025-12-03 15:42,no_reply_from_client,130.0,
+2025-11-27-B,2025-11-27 21:49,other,small_group,both,individual,,2025-12-04 03:09,2025-12-04 22:23,,,,,2025-12-09 11:42,cancelled,120.0,
+2025-11-29-A,2025-11-29 14:01,instagram_dm,private_session,both,individual,,2025-11-29 18:04,2025-11-30 10:48,,,,,2025-12-05 13:18,no_reply_from_client,120.0,
+2025-11-30-A,2025-11-30 13:11,text_message,other,es,other,60623,2025-11-30 19:08,2025-12-01 00:15,2025-12-05 04:22,2025-12-07 23:05,,2025-12-08 19:49,,,130.0,
+2025-12-01-A,2025-12-01 22:22,other,community_event,en,nonprofit_community,60607,2025-12-05 13:10,2025-12-06 06:53,,,,,,,210.0,
+2025-12-02-A,2025-12-02 17:28,text_message,private_session,en,individual,,2025-12-02 22:52,2025-12-03 02:25,2025-12-05 13:15,2025-12-16 20:31,,2025-12-18 01:39,,,80.0,Asked about a weekly private session
+2025-12-03-A,2025-12-03 11:49,email,corporate_session,es,company,60647,2025-12-04 11:10,2025-12-05 13:50,,,,,2025-12-15 14:43,scheduling_conflict,430.0,Lunchtime session for a team
+2025-12-07-A,2025-12-07 19:12,text_message,private_session,en,individual,,2025-12-07 23:43,2025-12-09 00:45,2025-12-12 12:47,2025-12-24 08:09,,2025-12-24 23:15,,,100.0,
+2025-12-08-A,2025-12-08 07:16,in_person,private_session,both,individual,,2025-12-08 07:59,,,,,,2025-12-10 01:23,scheduling_conflict,,Asked about a weekly private session
+2025-12-12-A,2025-12-12 10:26,instagram_dm,private_session,en,individual,,2025-12-12 19:44,,,,,,2025-12-15 01:52,declined_price,,
+2025-12-12-B,2025-12-12 16:00,instagram_dm,other,en,individual,,2025-12-13 18:56,2025-12-13 18:58,,,,,2025-12-21 07:50,declined_price,80.0,
+2025-12-13-A,2025-12-13 18:50,linktree_form,corporate_session,en,company,60625,2025-12-15 05:18,2025-12-15 20:11,,,,,2025-12-18 20:57,declined_price,750.0,
+2025-12-13-B,2025-12-13 19:19,instagram_dm,small_group,en,individual,,2025-12-14 16:00,2025-12-15 16:51,2025-12-19 17:59,2025-12-28 12:45,,2025-12-29 10:20,,,110.0,Group of 4 friends
+2025-12-14-A,2025-12-14 18:05,instagram_dm,workshop,es,nonprofit_community,60607,2025-12-18 17:41,2025-12-19 15:25,2025-12-21 17:43,2025-12-28 06:04,2025-12-29 13:06,2025-12-31 02:41,,,190.0,
+2025-12-14-B,2025-12-14 20:45,text_message,small_group,es,individual,,2025-12-14 22:12,2025-12-15 04:59,2025-12-15 14:15,2025-12-20 06:50,,2025-12-22 08:41,,,100.0,Group of 4 friends
+2025-12-15-A,2025-12-15 09:55,phone_call,workshop,en,nonprofit_community,60612,2025-12-15 11:31,2025-12-15 17:51,2025-12-20 08:23,2025-12-23 15:01,2025-12-24 00:04,2025-12-25 04:54,,,350.0,
+2025-12-16-A,2025-12-16 09:47,text_message,small_group,en,individual,,2025-12-16 12:05,2025-12-17 16:20,2025-12-18 10:13,2025-12-20 10:06,,2025-12-21 17:09,,,140.0,
+2025-12-20-A,2025-12-20 10:53,phone_call,private_session,en,individual,,2025-12-20 13:20,2025-12-20 23:05,,,,,2026-01-02 13:13,declined_price,80.0,
+2025-12-20-B,2025-12-20 17:14,linktree_form,private_session,es,individual,,2025-12-21 15:03,2025-12-22 20:05,2025-12-25 03:03,2026-01-04 03:26,,2026-01-09 06:45,,,120.0,Asked about a weekly private session
+2025-12-20-C,2025-12-20 21:06,text_message,corporate_session,en,company,60612,2025-12-20 21:53,2025-12-22 00:10,2025-12-23 08:32,2025-12-29 09:54,2025-12-31 09:14,2026-01-10 12:12,,,480.0,Lunchtime session for a team
+2025-12-21-A,2025-12-21 13:50,instagram_dm,class_series,both,individual,,2025-12-22 07:03,2025-12-23 01:13,,,,,2026-01-05 11:01,cancelled,180.0,6-week beginner series
+2025-12-22-A,2025-12-22 08:10,in_person,school_event,es,school,,2025-12-22 13:14,2025-12-23 09:42,2025-12-25 19:52,2026-01-04 21:07,2026-01-07 18:27,2026-02-07 13:45,,,500.0,Wellness day for students
+2025-12-22-B,2025-12-22 14:44,instagram_dm,corporate_session,en,company,60614,2025-12-24 19:54,2025-12-25 10:05,2025-12-28 01:15,2026-01-08 23:50,2026-01-11 23:24,2026-01-17 20:17,,,410.0,Lunchtime session for a team
+2025-12-22-C,2025-12-22 17:10,instagram_dm,workshop,es,studio,60632,2025-12-23 08:30,2025-12-23 23:42,,,,,2025-12-27 06:11,no_reply_from_client,280.0,
+2025-12-23-A,2025-12-23 17:43,text_message,workshop,es,nonprofit_community,60612,2025-12-23 22:43,2025-12-24 15:57,,,,,2026-01-04 03:32,other,240.0,Weekend workshop
+2025-12-24-A,2025-12-24 18:17,linktree_form,private_session,en,individual,,2025-12-27 03:29,2025-12-27 20:50,,,,,2026-01-04 06:36,no_reply_from_client,110.0,
+2025-12-25-A,2025-12-25 20:24,instagram_dm,private_session,en,individual,,2025-12-25 23:36,2025-12-26 02:13,,,,,2026-01-02 07:05,went_elsewhere,120.0,
+2025-12-26-A,2025-12-26 18:01,instagram_dm,corporate_session,en,company,60609,2025-12-27 01:56,2025-12-27 16:41,,,,,2026-01-04 06:21,scheduling_conflict,470.0,Lunchtime session for a team
+2025-12-27-A,2025-12-27 14:42,instagram_dm,private_session,both,individual,,2025-12-28 05:21,2025-12-28 22:24,,,,,2025-12-30 05:47,other,100.0,
+2025-12-29-A,2025-12-29 17:14,text_message,private_session,en,individual,,2025-12-29 21:22,,,,,,2026-01-02 15:38,no_reply_from_client,,
+2025-12-31-A,2025-12-31 19:43,linktree_form,private_session,en,individual,,2026-01-01 06:14,,,,,,,,,Asked about a weekly private session
+2026-01-01-A,2026-01-01 18:07,text_message,private_session,both,individual,,2026-01-01 19:24,2026-01-02 22:33,2026-01-03 22:19,2026-01-11 12:37,,2026-01-13 12:22,,,120.0,Asked about a weekly private session
+2026-01-01-B,2026-01-01 19:07,referral,private_session,en,individual,,2026-01-02 06:50,2026-01-03 12:09,2026-01-03 20:40,2026-01-10 18:39,,2026-01-11 17:21,,,110.0,
+2026-01-02-A,2026-01-02 14:18,linktree_form,class_series,both,individual,,2026-01-02 21:16,2026-01-03 02:12,2026-01-07 09:48,2026-01-10 20:53,,2026-01-11 07:42,,,280.0,
+2026-01-04-A,2026-01-04 15:11,instagram_dm,community_event,en,nonprofit_community,,2026-01-05 15:35,2026-01-06 01:38,2026-01-08 06:31,2026-01-14 12:56,2026-01-15 09:02,2026-01-16 01:19,,,260.0,Free community class in the park
+2026-01-04-B,2026-01-04 15:39,instagram_dm,other,es,other,60647,2026-01-05 11:14,2026-01-06 16:55,,,,,2026-01-18 14:40,no_reply_from_client,130.0,
+2026-01-04-C,2026-01-04 16:10,instagram_dm,private_session,en,individual,,2026-01-04 21:06,,,,,,,,,Asked about a weekly private session
+2026-01-05-A,2026-01-05 09:37,instagram_dm,private_session,en,individual,,2026-01-05 16:37,2026-01-06 03:42,2026-01-07 03:39,2026-01-15 10:44,,2026-01-18 12:51,,,120.0,
+2026-01-05-B,2026-01-05 09:49,instagram_dm,small_group,es,individual,,2026-01-06 01:50,2026-01-06 12:53,,,,,2026-01-11 10:16,no_reply_from_client,90.0,Group of 4 friends
+2026-01-05-C,2026-01-05 10:21,instagram_dm,school_event,en,school,60632,,,,,,,2026-01-07 12:49,no_reply_from_client,,Wellness day for students
+2026-01-05-D,2026-01-05 13:39,instagram_dm,private_session,es,individual,,,,,,,,2026-01-18 14:39,no_reply_from_client,,
+2026-01-10-A,2026-01-10 07:50,instagram_dm,private_session,en,individual,,2026-01-13 13:55,2026-01-14 01:34,,,,,2026-01-25 08:22,declined_price,80.0,
+2026-01-10-B,2026-01-10 13:18,phone_call,private_session,en,individual,,2026-01-10 16:04,2026-01-11 00:35,,,,,2026-01-16 19:50,scheduling_conflict,80.0,Asked about a weekly private session
+2026-01-11-A,2026-01-11 18:46,referral,community_event,en,nonprofit_community,60616,2026-01-11 23:10,2026-01-12 06:21,2026-01-15 11:31,2026-01-25 11:55,2026-01-27 15:19,2026-02-24 21:50,,,110.0,
+2026-01-12-A,2026-01-12 11:40,text_message,private_session,es,individual,,2026-01-12 16:43,,,,,,2026-01-24 22:56,declined_price,,Asked about a weekly private session
+2026-01-13-A,2026-01-13 16:26,referral,workshop,es,individual,,2026-01-16 14:54,2026-01-17 20:37,,,,,2026-01-29 10:17,scheduling_conflict,310.0,Weekend workshop
+2026-01-14-A,2026-01-14 12:08,text_message,private_session,en,individual,,2026-01-14 19:24,2026-01-15 03:56,2026-01-19 21:58,2026-01-28 10:56,,2026-01-29 03:08,,,120.0,Asked about a weekly private session
+2026-01-14-B,2026-01-14 12:58,instagram_dm,other,es,other,60618,2026-01-15 21:20,,,,,,2026-01-19 10:38,went_elsewhere,,
+2026-01-14-C,2026-01-14 19:36,linktree_form,class_series,en,individual,,2026-01-15 10:11,2026-01-16 00:03,2026-01-16 22:30,2026-01-22 18:12,,2026-01-22 19:19,,,150.0,
+2026-01-16-A,2026-01-16 09:09,in_person,small_group,es,individual,,2026-01-16 11:15,2026-01-17 08:06,,,,,2026-01-24 06:27,cancelled,160.0,Group of 4 friends
+2026-01-16-B,2026-01-16 16:29,instagram_dm,corporate_session,en,company,60629,2026-01-20 20:06,2026-01-21 12:08,2026-01-22 05:07,2026-01-23 19:17,2026-01-26 04:42,2026-02-09 16:48,,,380.0,Lunchtime session for a team
+2026-01-17-A,2026-01-17 10:23,email,small_group,es,individual,,,,,,,,2026-01-23 11:08,no_reply_from_client,,Group of 4 friends
+2026-01-18-A,2026-01-18 13:28,referral,private_session,en,individual,,2026-01-18 23:36,2026-01-19 22:13,2026-01-24 00:04,2026-01-26 05:27,,2026-01-26 18:39,,,120.0,
+2026-01-18-B,2026-01-18 16:17,instagram_dm,community_event,both,nonprofit_community,60618,2026-01-19 18:36,2026-01-19 20:22,2026-01-24 14:29,2026-02-01 21:04,2026-02-03 08:56,2026-02-14 09:19,,,190.0,
+2026-01-18-C,2026-01-18 17:26,text_message,private_session,es,individual,,2026-01-19 00:22,2026-01-19 07:01,2026-01-21 06:04,2026-02-01 01:31,,2026-02-01 14:33,,,100.0,Asked about a weekly private session
+2026-01-19-A,2026-01-19 09:38,email,small_group,en,individual,,2026-01-19 23:34,2026-01-20 09:16,,,,,2026-01-24 17:31,no_reply_from_client,140.0,
+2026-01-20-A,2026-01-20 12:12,instagram_dm,workshop,es,studio,60616,2026-01-20 18:04,2026-01-21 22:49,,,,,2026-01-29 12:20,declined_price,130.0,Weekend workshop
+2026-01-21-A,2026-01-21 20:45,other,corporate_session,es,company,60614,2026-01-22 20:53,2026-01-23 22:26,,,,,2026-01-25 07:24,no_reply_from_client,650.0,Lunchtime session for a team
+2026-01-22-A,2026-01-22 13:54,other,class_series,en,individual,,,,,,,,,,,
+2026-01-22-B,2026-01-22 15:29,email,community_event,es,nonprofit_community,60618,2026-01-23 20:09,2026-01-24 03:31,,,,,2026-02-01 15:56,no_reply_from_client,150.0,Free community class in the park
+2026-01-22-C,2026-01-22 16:01,instagram_dm,private_session,en,individual,,2026-01-22 18:35,2026-01-23 13:16,,,,,2026-01-28 18:59,no_reply_from_client,120.0,
+2026-01-23-A,2026-01-23 08:44,instagram_dm,private_session,en,individual,,,,,,,,2026-02-03 10:09,no_reply_from_client,,
+2026-01-23-B,2026-01-23 13:32,phone_call,private_session,es,individual,,2026-01-23 15:37,2026-01-24 00:39,,,,,,,90.0,
+2026-01-23-C,2026-01-23 15:14,referral,small_group,both,individual,,2026-01-24 00:03,2026-01-24 13:51,,,,,2026-02-02 00:01,declined_price,100.0,Group of 4 friends
+2026-01-23-D,2026-01-23 15:39,email,private_session,es,individual,,2026-01-23 21:36,2026-01-24 07:53,2026-01-28 00:44,2026-02-04 09:13,,2026-02-04 16:03,,,80.0,
+2026-01-25-A,2026-01-25 13:53,linktree_form,private_session,both,individual,,2026-01-27 04:15,2026-01-28 07:18,2026-01-30 09:22,2026-02-11 09:03,,2026-02-12 17:04,,,90.0,Asked about a weekly private session
+2026-01-25-B,2026-01-25 15:38,text_message,other,other,individual,,2026-01-25 19:37,2026-01-26 14:15,,,,,2026-02-01 20:52,scheduling_conflict,40.0,
+2026-01-25-C,2026-01-25 17:59,referral,private_session,en,individual,,2026-01-25 23:22,2026-01-26 06:02,,,,,2026-02-02 03:15,cancelled,120.0,Asked about a weekly private session
+2026-01-25-D,2026-01-25 20:14,referral,private_session,es,individual,,2026-01-26 05:19,2026-01-26 13:27,2026-01-27 13:35,2026-02-02 23:12,,2026-02-03 12:59,,,130.0,Asked about a weekly private session
+2026-01-26-A,2026-01-26 11:43,instagram_dm,school_event,en,school,,2026-01-26 16:59,2026-01-26 19:26,,,,,2026-01-30 14:39,went_elsewhere,520.0,
+2026-01-27-A,2026-01-27 09:10,in_person,private_session,es,individual,,2026-01-27 09:41,2026-01-28 14:47,2026-01-30 17:45,2026-02-09 23:08,,2026-02-11 20:23,,,80.0,Asked about a weekly private session
+2026-01-28-A,2026-01-28 10:13,instagram_dm,class_series,en,studio,60612,2026-01-29 20:15,2026-01-30 13:24,,,,,2026-02-01 12:20,cancelled,240.0,6-week beginner series
+2026-01-31-A,2026-01-31 07:12,text_message,private_session,en,individual,,2026-01-31 14:12,2026-01-31 23:06,,,,,2026-02-08 17:17,no_reply_from_client,100.0,
+2026-01-31-B,2026-01-31 16:52,email,community_event,en,nonprofit_community,60623,2026-02-06 11:15,2026-02-07 02:40,,,,,2026-02-19 12:23,no_reply_from_client,150.0,Free community class in the park
+2026-02-01-A,2026-02-01 09:34,instagram_dm,class_series,es,individual,,2026-02-01 20:27,,,,,,2026-02-12 03:18,no_reply_from_client,,6-week beginner series
+2026-02-01-B,2026-02-01 12:31,email,workshop,en,nonprofit_community,60612,2026-02-05 21:38,2026-02-05 22:29,,,,,2026-02-19 01:07,other,270.0,
+2026-02-01-C,2026-02-01 20:43,instagram_dm,private_session,both,individual,,2026-02-03 13:02,2026-02-04 03:58,2026-02-06 00:15,2026-02-08 01:25,,2026-02-08 18:37,,,140.0,
+2026-02-02-A,2026-02-02 16:10,email,private_session,both,individual,,2026-02-04 06:11,,,,,,2026-02-06 18:43,declined_price,,
+2026-02-02-B,2026-02-02 17:21,text_message,private_session,en,individual,,2026-02-03 00:19,2026-02-03 19:21,,,,,2026-02-10 23:17,declined_price,140.0,
+2026-02-04-A,2026-02-04 11:09,referral,small_group,en,individual,,2026-02-05 14:29,2026-02-06 02:47,2026-02-08 01:36,2026-02-16 08:38,,2026-02-17 11:16,,,170.0,Group of 4 friends
+2026-02-04-B,2026-02-04 15:43,linktree_form,small_group,both,individual,,,,,,,,2026-02-08 16:54,no_reply_from_client,,
+2026-02-04-C,2026-02-04 21:09,in_person,corporate_session,en,company,60616,2026-02-04 23:38,2026-02-05 02:06,,,,,2026-02-18 10:14,declined_price,360.0,Lunchtime session for a team
+2026-02-04-D,2026-02-04 22:22,linktree_form,private_session,en,individual,,2026-02-05 03:18,2026-02-06 00:02,,,,,2026-02-16 01:50,scheduling_conflict,80.0,
+2026-02-06-A,2026-02-06 20:24,instagram_dm,school_event,both,school,60614,2026-02-07 08:45,,,,,,,,,Wellness day for students
+2026-02-07-A,2026-02-07 18:38,instagram_dm,private_session,es,individual,,2026-02-08 02:14,2026-02-08 11:28,,,,,2026-02-16 05:34,cancelled,80.0,Asked about a weekly private session
+2026-02-08-A,2026-02-08 22:08,instagram_dm,community_event,es,nonprofit_community,,2026-02-10 01:13,2026-02-10 01:19,2026-02-14 10:53,2026-02-26 09:55,2026-02-27 10:12,2026-03-28 04:10,,,110.0,Free community class in the park
+2026-02-09-A,2026-02-09 13:47,linktree_form,private_session,en,individual,,2026-02-11 22:46,2026-02-12 10:11,,,,,2026-02-16 01:08,no_reply_from_client,120.0,
+2026-02-10-A,2026-02-10 17:12,email,private_session,en,individual,,2026-02-11 19:58,2026-02-12 13:46,2026-02-16 15:36,2026-02-27 05:53,,2026-02-27 18:52,,,130.0,Asked about a weekly private session
+2026-02-12-A,2026-02-12 20:34,instagram_dm,workshop,en,individual,,2026-02-13 07:47,2026-02-13 21:08,,,,,2026-02-24 05:24,no_reply_from_client,360.0,Weekend workshop
+2026-02-13-A,2026-02-13 07:16,in_person,private_session,en,individual,,2026-02-13 07:40,2026-02-14 01:21,2026-02-14 13:52,2026-02-20 09:20,,2026-02-22 00:10,,,130.0,Asked about a weekly private session
+2026-02-13-B,2026-02-13 10:24,in_person,school_event,en,school,60601,2026-02-13 12:35,2026-02-14 05:42,2026-02-17 10:13,2026-02-19 06:46,2026-02-22 00:31,2026-02-23 21:30,,,320.0,Wellness day for students
+2026-02-14-A,2026-02-14 13:20,instagram_dm,small_group,es,individual,,,,,,,,2026-02-19 20:45,no_reply_from_client,,Group of 4 friends
+2026-02-14-B,2026-02-14 17:05,text_message,corporate_session,both,company,,2026-02-15 06:34,2026-02-15 08:22,,,,,2026-02-20 05:03,cancelled,620.0,
+2026-02-15-A,2026-02-15 10:13,text_message,other,en,other,60607,2026-02-15 17:53,2026-02-15 23:52,2026-02-19 05:54,2026-02-21 04:49,,2026-02-25 14:00,,,140.0,
+2026-02-15-B,2026-02-15 11:51,text_message,small_group,en,individual,,2026-02-15 16:48,2026-02-16 03:22,,,,,,,190.0,Group of 4 friends
+2026-02-15-C,2026-02-15 17:39,linktree_form,private_session,en,individual,,2026-02-17 13:28,2026-02-17 22:21,,,,,2026-02-28 22:11,declined_price,100.0,Asked about a weekly private session
+2026-02-16-A,2026-02-16 16:58,other,private_session,both,individual,,2026-02-16 22:33,2026-02-17 19:25,,,,,2026-02-22 21:13,went_elsewhere,140.0,Asked about a weekly private session
+2026-02-17-A,2026-02-17 14:50,referral,corporate_session,es,company,,2026-02-18 01:04,2026-02-19 05:03,2026-02-22 11:18,2026-02-26 05:57,2026-02-27 10:41,2026-02-28 04:58,,,650.0,Lunchtime session for a team
+2026-02-18-A,2026-02-18 08:49,linktree_form,other,en,individual,,2026-02-21 09:49,2026-02-22 08:18,2026-02-27 03:30,2026-03-01 06:31,,2026-03-03 13:37,,,110.0,
+2026-02-18-B,2026-02-18 14:32,email,workshop,es,studio,,2026-02-19 06:40,2026-02-19 08:08,,,,,2026-02-24 09:48,no_reply_from_client,210.0,
+2026-02-20-A,2026-02-20 12:28,phone_call,community_event,en,nonprofit_community,60614,2026-02-20 20:14,2026-02-21 03:54,2026-02-23 23:53,2026-02-28 18:07,2026-03-02 00:47,2026-03-08 22:28,,,210.0,
+2026-02-20-B,2026-02-20 14:47,instagram_dm,workshop,both,studio,60608,2026-02-21 09:31,2026-02-21 16:32,,,,,2026-03-03 22:18,no_reply_from_client,260.0,
+2026-02-20-C,2026-02-20 16:26,instagram_dm,community_event,en,nonprofit_community,60647,2026-02-20 21:55,2026-02-22 03:15,2026-02-22 20:20,2026-03-03 19:24,2026-03-06 01:35,2026-03-18 14:22,,,140.0,
+2026-02-24-A,2026-02-24 10:51,text_message,small_group,es,individual,,2026-02-24 18:15,2026-02-25 19:05,,,,,2026-03-01 12:57,no_reply_from_client,190.0,Group of 4 friends
+2026-02-25-A,2026-02-25 11:33,text_message,community_event,es,nonprofit_community,60625,2026-02-27 10:52,,,,,,2026-03-05 04:38,no_reply_from_client,,Free community class in the park
+2026-02-26-A,2026-02-26 12:56,instagram_dm,community_event,both,nonprofit_community,60618,2026-02-27 05:05,2026-02-28 01:59,,,,,,,320.0,Free community class in the park
+2026-02-27-A,2026-02-27 07:18,referral,private_session,es,individual,,2026-02-27 09:31,2026-02-28 04:17,2026-02-28 14:35,2026-03-06 23:32,,2026-03-08 09:39,,,100.0,
+2026-02-27-B,2026-02-27 12:54,linktree_form,small_group,es,individual,,2026-02-27 21:48,2026-02-28 02:14,,,,,2026-03-05 01:12,no_reply_from_client,120.0,
+2026-02-28-A,2026-02-28 15:09,instagram_dm,small_group,es,individual,,2026-02-28 21:19,2026-03-02 00:22,,,,,2026-03-06 21:03,no_reply_from_client,150.0,
+2026-02-28-B,2026-02-28 15:37,instagram_dm,private_session,en,individual,,2026-03-02 06:52,,,,,,2026-03-12 06:18,scheduling_conflict,,Asked about a weekly private session
+2026-03-01-A,2026-03-01 12:46,instagram_dm,workshop,en,studio,60608,2026-03-02 06:51,,,,,,2026-03-12 22:41,scheduling_conflict,,
+2026-03-02-A,2026-03-02 22:05,linktree_form,private_session,en,individual,,2026-03-03 01:33,2026-03-03 01:45,2026-03-06 14:20,2026-03-14 04:24,,2026-03-15 06:50,,,80.0,
+2026-03-03-A,2026-03-03 17:48,instagram_dm,private_session,es,individual,,2026-03-04 01:09,2026-03-04 07:55,2026-03-06 09:26,2026-03-14 13:24,,2026-03-15 16:51,,,100.0,Asked about a weekly private session
+2026-03-04-A,2026-03-04 12:55,text_message,small_group,es,individual,,2026-03-04 17:53,,,,,,,,,
+2026-03-04-B,2026-03-04 14:46,text_message,private_session,es,individual,,2026-03-04 17:04,2026-03-04 17:09,2026-03-07 10:29,2026-03-12 01:37,,2026-03-12 04:11,,,130.0,Asked about a weekly private session
+2026-03-05-A,2026-03-05 21:33,phone_call,class_series,both,individual,,2026-03-06 01:40,2026-03-06 09:47,,,,,2026-03-09 12:42,no_reply_from_client,210.0,6-week beginner series
+2026-03-06-A,2026-03-06 11:19,linktree_form,corporate_session,en,company,60612,2026-03-06 23:54,2026-03-07 03:56,,,,,,,740.0,
+2026-03-08-A,2026-03-08 10:11,linktree_form,community_event,both,nonprofit_community,60614,,,,,,,2026-03-20 04:45,no_reply_from_client,,Free community class in the park
+2026-03-08-B,2026-03-08 14:42,text_message,small_group,both,individual,,2026-03-08 15:34,2026-03-09 01:00,,,,,,,100.0,Group of 4 friends
+2026-03-09-A,2026-03-09 16:35,phone_call,private_session,en,individual,,2026-03-09 18:34,2026-03-09 21:23,,,,,2026-03-16 11:30,no_reply_from_client,110.0,Asked about a weekly private session
+2026-03-10-A,2026-03-10 15:49,instagram_dm,private_session,es,individual,,2026-03-11 05:43,2026-03-11 11:09,2026-03-14 08:09,2026-03-24 22:01,,2026-03-25 20:05,,,80.0,
+2026-03-10-B,2026-03-10 17:29,text_message,community_event,en,nonprofit_community,60618,2026-03-10 18:49,2026-03-11 09:50,2026-03-13 13:22,2026-03-16 01:32,2026-03-17 20:57,2026-04-10 13:27,,,180.0,Free community class in the park
+2026-03-10-C,2026-03-10 17:53,text_message,small_group,en,individual,,2026-03-10 20:58,2026-03-11 09:02,2026-03-11 18:59,2026-03-23 18:13,,2026-03-24 11:05,,,150.0,Group of 4 friends
+2026-03-12-A,2026-03-12 14:13,in_person,school_event,es,school,60609,2026-03-12 14:29,2026-03-13 02:50,2026-03-16 18:16,2026-03-22 02:41,2026-03-24 13:28,2026-04-16 10:33,,,230.0,
+2026-03-14-A,2026-03-14 15:28,linktree_form,private_session,en,individual,,2026-03-16 17:07,2026-03-17 22:09,2026-03-22 14:07,2026-04-02 19:09,,2026-04-03 22:10,,,110.0,Asked about a weekly private session
+2026-03-14-B,2026-03-14 15:57,referral,class_series,en,studio,,2026-03-16 02:22,2026-03-16 12:22,2026-03-20 06:41,2026-03-23 05:54,,2026-03-25 13:42,,,200.0,6-week beginner series
+2026-03-15-A,2026-03-15 14:16,email,private_session,en,individual,,,,,,,,,,,Asked about a weekly private session
+2026-03-15-B,2026-03-15 15:16,instagram_dm,small_group,en,individual,,2026-03-20 09:20,2026-03-20 13:00,2026-03-24 11:21,2026-03-28 07:45,,2026-03-29 17:17,,,150.0,
+2026-03-15-C,2026-03-15 16:24,text_message,corporate_session,es,company,60625,2026-03-15 21:27,2026-03-17 03:02,2026-03-17 23:15,2026-03-23 23:05,2026-03-26 00:53,2026-04-09 19:49,,,290.0,
+2026-03-16-A,2026-03-16 10:32,instagram_dm,private_session,en,individual,,2026-03-19 17:52,,,,,,2026-03-18 17:52,no_reply_from_client,,Asked about a weekly private session
+2026-03-16-B,2026-03-16 11:47,instagram_dm,private_session,es,individual,,2026-03-16 21:02,2026-03-17 10:51,2026-03-22 06:44,2026-03-31 04:05,,2026-03-31 04:30,,,140.0,Asked about a weekly private session
+2026-03-16-C,2026-03-16 20:54,in_person,corporate_session,en,company,60616,2026-03-16 22:11,2026-03-18 02:59,,,,,2026-03-22 08:46,cancelled,490.0,
+2026-03-17-A,2026-03-17 12:22,linktree_form,class_series,en,individual,,2026-03-18 11:06,2026-03-18 16:58,2026-03-20 11:01,2026-03-29 13:40,,2026-03-30 12:50,,,220.0,
+2026-03-18-A,2026-03-18 13:25,phone_call,small_group,both,individual,,2026-03-18 17:59,,,,,,2026-03-20 01:52,declined_price,,Group of 4 friends
+2026-03-22-A,2026-03-22 13:19,linktree_form,small_group,es,individual,,2026-03-22 21:16,,,,,,2026-04-04 00:28,no_reply_from_client,,Group of 4 friends
+2026-03-22-B,2026-03-22 14:47,instagram_dm,private_session,en,individual,,2026-03-23 05:45,2026-03-24 11:15,2026-03-27 03:55,2026-04-04 14:49,,2026-04-04 18:07,,,110.0,
+2026-03-23-A,2026-03-23 10:51,instagram_dm,private_session,both,individual,,2026-03-24 15:21,2026-03-25 02:32,2026-03-25 15:29,2026-04-03 23:04,,2026-04-04 16:15,,,120.0,Asked about a weekly private session
+2026-03-24-A,2026-03-24 12:04,referral,small_group,es,individual,,2026-03-25 16:48,2026-03-26 12:13,,,,,2026-04-01 02:18,scheduling_conflict,100.0,Group of 4 friends
+2026-03-26-A,2026-03-26 13:18,other,community_event,es,nonprofit_community,60609,,,,,,,2026-03-29 06:01,no_reply_from_client,,
+2026-03-27-A,2026-03-27 07:16,instagram_dm,workshop,en,studio,60609,2026-03-27 15:17,2026-03-28 09:49,2026-03-30 17:36,2026-04-04 18:32,,2026-04-06 15:25,,,190.0,Weekend workshop
+2026-03-29-A,2026-03-29 18:03,text_message,other,both,individual,,2026-03-30 01:03,2026-03-30 14:12,2026-04-01 16:23,2026-04-06 22:09,,2026-04-11 21:26,,,50.0,
+2026-03-30-A,2026-03-30 11:51,text_message,private_session,en,individual,,2026-03-30 14:49,2026-03-30 22:16,,,,,,,110.0,Asked about a weekly private session
+2026-03-30-B,2026-03-30 16:34,instagram_dm,class_series,en,studio,60614,2026-03-31 13:14,2026-04-01 17:17,,,,,2026-04-03 11:18,scheduling_conflict,200.0,6-week beginner series
+2026-03-30-C,2026-03-30 17:41,instagram_dm,private_session,en,individual,,2026-03-31 17:42,2026-04-01 06:25,,,,,2026-04-08 21:18,no_reply_from_client,80.0,
+2026-04-01-A,2026-04-01 10:12,phone_call,community_event,en,nonprofit_community,60618,2026-04-01 20:13,2026-04-02 04:32,2026-04-04 19:20,2026-04-12 17:33,2026-04-15 07:57,2026-04-18 06:01,,,390.0,
+2026-04-01-B,2026-04-01 22:54,instagram_dm,corporate_session,en,company,60614,2026-04-02 02:05,,,,,,2026-04-15 20:01,scheduling_conflict,,Lunchtime session for a team
+2026-04-03-A,2026-04-03 18:04,referral,private_session,both,individual,,2026-04-04 22:56,2026-04-05 06:09,2026-04-08 04:06,2026-04-19 14:13,,2026-04-21 02:05,,,110.0,Asked about a weekly private session
+2026-04-04-A,2026-04-04 18:43,linktree_form,school_event,en,school,60607,2026-04-05 23:53,2026-04-06 15:54,2026-04-08 03:57,2026-04-20 00:50,2026-04-22 01:35,2026-04-28 13:24,,,460.0,
+2026-04-06-A,2026-04-06 12:12,instagram_dm,corporate_session,en,company,,2026-04-06 16:41,2026-04-07 10:15,2026-04-07 19:15,2026-04-12 09:08,2026-04-14 08:15,2026-04-25 09:33,,,570.0,Lunchtime session for a team
+2026-04-07-A,2026-04-07 11:39,email,private_session,es,individual,,2026-04-11 03:58,2026-04-12 03:31,,,,,,,120.0,
+2026-04-07-B,2026-04-07 14:45,email,small_group,en,individual,,2026-04-13 08:19,2026-04-13 23:35,,,,,2026-04-27 08:38,no_reply_from_client,170.0,
+2026-04-07-C,2026-04-07 19:30,linktree_form,private_session,both,individual,,2026-04-08 14:06,2026-04-08 16:00,2026-04-11 14:52,2026-04-19 01:09,,2026-04-19 06:33,,,140.0,
+2026-04-08-A,2026-04-08 10:49,email,private_session,en,individual,,2026-04-09 07:36,2026-04-10 09:56,2026-04-13 08:38,2026-04-24 11:38,,2026-04-26 05:16,,,140.0,Asked about a weekly private session
+2026-04-14-A,2026-04-14 14:23,referral,small_group,both,individual,,2026-04-14 22:46,2026-04-15 00:04,2026-04-17 20:06,2026-04-27 16:06,,2026-04-27 20:25,,,160.0,Group of 4 friends
+2026-04-15-A,2026-04-15 11:00,email,corporate_session,en,company,60609,2026-04-16 05:45,,,,,,2026-04-23 13:37,scheduling_conflict,,Lunchtime session for a team
+2026-04-15-B,2026-04-15 18:23,linktree_form,corporate_session,es,company,60618,2026-04-16 10:20,2026-04-17 05:53,,,,,2026-04-25 12:23,declined_price,550.0,
+2026-04-16-A,2026-04-16 09:09,instagram_dm,community_event,en,nonprofit_community,60605,2026-04-16 18:30,2026-04-17 19:59,,,,,2026-04-22 20:08,no_reply_from_client,330.0,Free community class in the park
+2026-04-16-B,2026-04-16 12:03,instagram_dm,private_session,es,individual,,2026-04-17 07:14,2026-04-17 16:42,,,,,2026-04-24 06:09,scheduling_conflict,130.0,Asked about a weekly private session
+2026-04-16-C,2026-04-16 15:57,instagram_dm,private_session,both,individual,,2026-04-17 19:54,,,,,,2026-04-20 22:30,no_reply_from_client,,
+2026-04-17-A,2026-04-17 14:18,referral,corporate_session,en,company,60614,2026-04-18 00:57,2026-04-18 23:46,,,,,2026-04-26 10:26,no_reply_from_client,410.0,Lunchtime session for a team
+2026-04-18-A,2026-04-18 11:49,instagram_dm,private_session,es,individual,,2026-04-18 19:19,2026-04-18 23:41,2026-04-23 15:07,2026-04-25 19:50,,2026-04-26 20:06,,,90.0,
+2026-04-19-A,2026-04-19 18:32,linktree_form,private_session,en,individual,,2026-04-21 11:35,2026-04-21 23:36,2026-04-23 22:29,2026-05-03 18:17,,2026-05-04 19:33,,,80.0,Asked about a weekly private session
+2026-04-24-A,2026-04-24 16:34,referral,community_event,en,nonprofit_community,,2026-04-24 23:13,2026-04-26 03:22,2026-04-29 11:19,2026-05-01 00:00,2026-05-03 14:54,2026-05-13 03:27,,,320.0,
+2026-04-25-A,2026-04-25 17:08,instagram_dm,private_session,en,individual,,2026-04-25 19:57,2026-04-26 19:22,,,,,,,90.0,
+2026-04-26-A,2026-04-26 11:54,other,small_group,en,individual,,2026-04-30 15:34,2026-05-01 09:00,,,,,2026-05-06 14:03,went_elsewhere,100.0,Group of 4 friends
+2026-04-26-B,2026-04-26 13:23,referral,school_event,en,school,,2026-04-26 22:42,2026-04-27 00:29,2026-04-28 07:33,2026-04-29 22:45,2026-04-30 19:13,2026-05-16 15:59,,,520.0,Wellness day for students
+2026-04-26-C,2026-04-26 17:23,instagram_dm,private_session,en,individual,,2026-04-26 21:06,2026-04-27 08:42,2026-05-01 10:55,2026-05-10 19:14,,2026-05-11 13:13,,,90.0,
+2026-04-28-A,2026-04-28 20:43,linktree_form,small_group,en,individual,,2026-04-30 18:51,,,,,,,,,Group of 4 friends
+2026-05-01-A,2026-05-01 18:13,referral,private_session,en,individual,,2026-05-01 22:41,2026-05-02 00:09,2026-05-04 11:21,2026-05-09 06:04,,2026-05-09 18:48,,,140.0,
+2026-05-03-A,2026-05-03 13:44,instagram_dm,corporate_session,en,company,60609,2026-05-04 05:41,2026-05-04 07:19,2026-05-06 08:29,2026-05-11 10:39,2026-05-12 14:14,2026-05-14 07:28,,,490.0,
+2026-05-03-B,2026-05-03 16:03,linktree_form,private_session,en,individual,,2026-05-04 19:41,,,,,,2026-05-08 10:35,scheduling_conflict,,Asked about a weekly private session
+2026-05-04-A,2026-05-04 16:34,referral,private_session,en,individual,,2026-05-05 00:18,2026-05-05 10:51,,,,,2026-05-18 22:32,no_reply_from_client,130.0,
+2026-05-05-A,2026-05-05 12:14,email,small_group,en,individual,,2026-05-06 17:19,2026-05-07 07:34,,,,,2026-05-14 20:44,no_reply_from_client,150.0,Group of 4 friends
+2026-05-05-B,2026-05-05 14:12,email,community_event,en,nonprofit_community,60629,2026-05-06 02:11,2026-05-06 15:49,2026-05-07 22:37,2026-05-12 08:04,2026-05-12 18:07,2026-05-29 08:33,,,230.0,
+2026-05-06-A,2026-05-06 15:59,in_person,private_session,es,individual,,,,,,,,2026-05-07 16:57,no_reply_from_client,,
+2026-05-07-A,2026-05-07 09:57,referral,corporate_session,en,company,60616,2026-05-08 05:02,,,,,,2026-05-15 21:53,other,,Lunchtime session for a team
+2026-05-07-B,2026-05-07 10:09,in_person,private_session,both,individual,,,,,,,,2026-05-09 04:54,no_reply_from_client,,Asked about a weekly private session
+2026-05-09-A,2026-05-09 13:41,text_message,class_series,es,studio,60632,2026-05-09 23:12,,,,,,2026-05-16 18:30,no_reply_from_client,,6-week beginner series
+2026-05-10-A,2026-05-10 19:24,instagram_dm,private_session,en,individual,,,,,,,,2026-05-22 06:31,no_reply_from_client,,Asked about a weekly private session
+2026-05-11-A,2026-05-11 09:23,instagram_dm,school_event,en,school,60640,2026-05-12 02:08,2026-05-12 06:41,,,,,2026-05-24 14:10,cancelled,220.0,
+2026-05-14-A,2026-05-14 11:25,linktree_form,small_group,both,individual,,2026-05-15 13:16,2026-05-15 23:48,2026-05-18 17:41,2026-05-27 05:23,,2026-05-27 06:37,,,170.0,
+2026-05-16-A,2026-05-16 07:40,linktree_form,private_session,en,individual,,2026-05-16 15:42,2026-05-16 18:24,2026-05-17 05:56,2026-05-24 13:27,,2026-05-24 14:37,,,100.0,Asked about a weekly private session
+2026-05-16-B,2026-05-16 17:50,phone_call,private_session,both,individual,,2026-05-16 18:22,,,,,,2026-05-29 15:48,no_reply_from_client,,
+2026-05-17-A,2026-05-17 12:36,instagram_dm,community_event,en,nonprofit_community,,2026-05-17 18:30,2026-05-18 16:48,,,,,2026-05-24 19:34,scheduling_conflict,210.0,Free community class in the park
+2026-05-18-A,2026-05-18 20:21,email,community_event,en,nonprofit_community,,2026-05-28 08:48,2026-05-28 20:50,,,,,2026-06-03 16:31,no_reply_from_client,140.0,Free community class in the park
+2026-05-19-A,2026-05-19 17:01,linktree_form,private_session,es,individual,,2026-05-20 10:17,2026-05-20 19:04,,,,,2026-05-24 13:53,no_reply_from_client,90.0,
+2026-05-20-A,2026-05-20 14:34,referral,corporate_session,es,company,,2026-05-20 15:54,2026-05-20 20:01,2026-05-21 09:10,2026-05-25 00:42,2026-05-25 07:49,2026-06-07 14:39,,,320.0,
+2026-05-21-A,2026-05-21 13:25,instagram_dm,workshop,es,studio,60614,2026-05-22 12:15,2026-05-23 11:27,,,,,2026-06-04 08:55,went_elsewhere,130.0,Weekend workshop
+2026-05-22-A,2026-05-22 10:41,instagram_dm,workshop,both,studio,60601,2026-05-23 14:18,2026-05-24 17:38,2026-05-27 21:43,2026-06-01 03:10,,2026-06-01 13:47,,,330.0,
+2026-05-22-B,2026-05-22 11:50,referral,workshop,en,individual,,2026-05-24 01:42,2026-05-24 02:29,2026-05-24 15:25,2026-05-26 09:17,,2026-05-28 09:56,,,330.0,Weekend workshop
+2026-05-22-C,2026-05-22 16:46,instagram_dm,small_group,es,individual,,2026-05-22 23:19,2026-05-23 05:14,,,,,2026-06-02 05:43,scheduling_conflict,110.0,
+2026-05-24-A,2026-05-24 19:04,referral,school_event,es,school,,2026-05-27 06:24,2026-05-28 07:19,2026-06-02 06:52,2026-06-11 15:29,2026-06-13 14:57,2026-07-01 18:49,,,520.0,
+2026-05-25-A,2026-05-25 15:48,instagram_dm,small_group,en,individual,,,,,,,,2026-05-31 20:02,no_reply_from_client,,Group of 4 friends
+2026-05-25-B,2026-05-25 22:53,instagram_dm,community_event,es,nonprofit_community,,2026-05-26 10:37,2026-05-26 20:00,,,,,2026-06-07 18:56,scheduling_conflict,210.0,
+2026-05-26-A,2026-05-26 08:14,instagram_dm,corporate_session,both,company,60640,2026-05-27 07:13,2026-05-27 07:15,,,,,2026-05-28 18:59,other,320.0,
+2026-05-27-A,2026-05-27 15:45,linktree_form,private_session,es,individual,,2026-05-28 02:19,2026-05-28 13:04,2026-05-31 01:43,2026-06-07 22:17,,2026-06-08 01:30,,,120.0,Asked about a weekly private session
+2026-05-29-A,2026-05-29 14:44,instagram_dm,corporate_session,en,company,60601,2026-05-30 01:23,2026-05-30 19:42,2026-06-01 09:37,2026-06-10 12:33,2026-06-11 18:24,2026-07-11 14:34,,,520.0,Lunchtime session for a team
+2026-05-29-B,2026-05-29 15:26,email,private_session,en,individual,,2026-06-01 02:20,2026-06-01 09:11,,,,,2026-06-08 18:58,scheduling_conflict,100.0,
+2026-05-30-A,2026-05-30 15:21,instagram_dm,corporate_session,both,company,,2026-05-31 02:45,,,,,,2026-06-05 07:49,no_reply_from_client,,Lunchtime session for a team
+2026-05-31-A,2026-05-31 12:24,referral,other,en,individual,,2026-05-31 21:14,2026-06-01 06:28,2026-06-03 14:39,2026-06-09 18:14,,2026-06-13 09:49,,,100.0,
+2026-05-31-B,2026-05-31 13:41,instagram_dm,class_series,both,individual,,2026-06-01 01:20,2026-06-01 17:59,2026-06-03 02:28,2026-06-08 22:59,,2026-06-09 09:52,,,290.0,6-week beginner series
+2026-06-01-A,2026-06-01 12:21,text_message,private_session,en,individual,,2026-06-02 18:50,2026-06-03 01:31,,,,,2026-06-07 13:09,cancelled,90.0,
+2026-06-03-A,2026-06-03 14:17,phone_call,other,both,individual,,2026-06-03 17:32,,,,,,2026-06-12 08:31,cancelled,,
+2026-06-03-B,2026-06-03 15:01,other,class_series,en,studio,60623,2026-06-05 19:24,2026-06-05 20:22,,,,,,,180.0,
+2026-06-04-A,2026-06-04 13:13,email,private_session,en,individual,,2026-06-06 07:23,2026-06-06 19:36,,,,,2026-06-08 02:45,no_reply_from_client,100.0,
+2026-06-05-A,2026-06-05 11:38,linktree_form,class_series,en,individual,,2026-06-06 01:33,2026-06-07 02:36,2026-06-08 07:39,2026-06-15 03:26,,2026-06-17 21:33,,,150.0,6-week beginner series
+2026-06-05-B,2026-06-05 20:23,instagram_dm,private_session,both,individual,,2026-06-07 07:55,2026-06-07 22:00,2026-06-10 17:21,2026-06-15 12:28,,2026-06-17 15:36,,,100.0,Asked about a weekly private session
+2026-06-06-A,2026-06-06 17:17,phone_call,workshop,en,individual,,2026-06-06 23:53,,,,,,2026-06-20 10:41,no_reply_from_client,,Weekend workshop
+2026-06-08-A,2026-06-08 07:44,referral,school_event,en,school,60609,2026-06-09 06:35,2026-06-09 23:21,2026-06-13 22:06,2026-06-17 12:25,2026-06-18 08:38,2026-07-28 02:53,,,270.0,
+2026-06-10-A,2026-06-10 14:47,referral,private_session,en,individual,,2026-06-11 05:06,2026-06-11 07:51,2026-06-12 14:18,2026-06-17 23:29,,2026-06-18 07:26,,,130.0,
+2026-06-11-A,2026-06-11 07:02,instagram_dm,small_group,en,individual,,2026-06-11 23:52,2026-06-12 15:38,2026-06-14 22:34,2026-06-20 14:05,,2026-06-21 19:09,,,170.0,
+2026-06-11-B,2026-06-11 14:55,instagram_dm,private_session,en,individual,,2026-06-12 04:58,,,,,,2026-06-17 13:49,no_reply_from_client,,Asked about a weekly private session
+2026-06-11-C,2026-06-11 15:38,other,other,en,individual,,,,,,,,2026-06-17 11:37,no_reply_from_client,,
+2026-06-11-D,2026-06-11 16:19,other,class_series,both,individual,,2026-06-13 05:18,2026-06-14 07:00,,,,,2026-06-20 04:42,went_elsewhere,160.0,6-week beginner series
+2026-06-12-A,2026-06-12 19:11,linktree_form,private_session,en,individual,,2026-06-13 18:59,2026-06-14 01:06,,,,,2026-06-23 12:25,no_reply_from_client,90.0,Asked about a weekly private session
+2026-06-12-B,2026-06-12 22:40,instagram_dm,school_event,en,school,60647,,,,,,,2026-06-20 04:00,no_reply_from_client,,Wellness day for students
+2026-06-12-C,2026-06-12 22:50,instagram_dm,class_series,en,individual,,2026-06-14 13:53,2026-06-14 17:46,,,,,2026-06-26 09:17,no_reply_from_client,200.0,6-week beginner series
+2026-06-13-A,2026-06-13 17:07,linktree_form,private_session,es,individual,,2026-06-15 05:31,2026-06-16 03:27,2026-06-20 04:55,2026-06-22 16:24,,2026-06-23 02:27,,,100.0,
+2026-06-14-A,2026-06-14 10:22,linktree_form,workshop,en,nonprofit_community,60609,2026-06-15 05:13,2026-06-15 16:14,2026-06-18 17:34,2026-06-19 18:47,2026-06-21 09:10,2026-06-28 11:08,,,120.0,Weekend workshop
+2026-06-14-B,2026-06-14 18:03,text_message,private_session,es,individual,,2026-06-15 01:14,2026-06-15 09:53,2026-06-17 06:45,2026-06-19 08:01,,2026-06-21 02:47,,,120.0,Asked about a weekly private session
+2026-06-15-A,2026-06-15 18:19,text_message,small_group,en,individual,,2026-06-15 20:35,2026-06-16 08:23,2026-06-17 01:48,2026-06-18 12:56,,2026-06-19 10:23,,,170.0,Group of 4 friends
+2026-06-17-A,2026-06-17 07:48,referral,private_session,both,individual,,2026-06-17 18:13,,,,,,2026-06-21 01:12,no_reply_from_client,,
+2026-06-19-A,2026-06-19 13:54,instagram_dm,private_session,both,individual,,2026-06-20 18:21,2026-06-21 14:14,,,,,2026-06-27 20:52,went_elsewhere,120.0,Asked about a weekly private session
+2026-06-21-A,2026-06-21 07:56,instagram_dm,private_session,en,individual,,2026-06-21 16:03,2026-06-22 02:11,2026-06-22 12:13,2026-06-30 09:34,,2026-07-01 00:14,,,80.0,Asked about a weekly private session
+2026-06-21-B,2026-06-21 12:22,in_person,private_session,both,individual,,2026-06-21 14:57,2026-06-22 15:42,,,,,2026-06-28 10:15,other,100.0,
+2026-06-25-A,2026-06-25 07:59,referral,private_session,en,individual,,2026-06-25 14:57,2026-06-26 14:59,2026-06-30 18:18,2026-07-10 18:59,,2026-07-11 03:47,,,110.0,Asked about a weekly private session
+2026-06-25-B,2026-06-25 16:08,referral,corporate_session,en,company,60614,2026-06-26 10:21,2026-06-27 10:23,2026-06-30 04:05,2026-07-05 18:52,2026-07-08 11:35,2026-08-15 13:00,,,350.0,
+2026-06-27-A,2026-06-27 17:08,instagram_dm,community_event,both,nonprofit_community,60622,2026-06-28 03:20,2026-06-28 09:30,,,,,2026-07-02 21:55,other,230.0,Free community class in the park
+2026-06-30-A,2026-06-30 17:06,linktree_form,small_group,en,individual,,2026-07-02 01:42,2026-07-02 14:32,2026-07-07 12:31,2026-07-15 11:02,,2026-07-19 18:45,,,150.0,
+2026-07-02-A,2026-07-02 17:42,instagram_dm,small_group,es,individual,,2026-07-02 21:14,,,,,,2026-07-04 01:34,went_elsewhere,,Group of 4 friends
+2026-07-06-A,2026-07-06 08:02,other,private_session,es,individual,,2026-07-09 09:33,2026-07-09 12:05,,,,,,,140.0,Asked about a weekly private session
+2026-07-08-A,2026-07-08 18:57,text_message,workshop,en,individual,,2026-07-09 06:48,2026-07-10 06:05,2026-07-13 10:12,2026-07-15 17:58,,2026-07-15 20:16,,,110.0,Weekend workshop
+2026-07-08-B,2026-07-08 19:03,other,private_session,en,individual,,2026-07-10 08:47,2026-07-11 09:16,,,,,2026-07-20 16:36,declined_price,90.0,Asked about a weekly private session
+2026-07-09-A,2026-07-09 20:19,text_message,other,both,individual,,2026-07-10 14:32,2026-07-10 19:47,2026-07-14 15:58,2026-07-22 13:21,,2026-07-22 23:05,,,140.0,
+2026-07-10-A,2026-07-10 10:16,text_message,community_event,both,nonprofit_community,60609,2026-07-10 13:27,2026-07-10 15:41,,,,,2026-07-19 10:52,other,290.0,Free community class in the park
+2026-07-10-B,2026-07-10 15:15,linktree_form,workshop,en,individual,,2026-07-14 01:17,2026-07-14 13:28,,,,,2026-07-15 17:20,no_reply_from_client,130.0,
+2026-07-12-A,2026-07-12 22:30,referral,corporate_session,es,company,60601,2026-07-13 02:18,2026-07-13 22:23,,,,,2026-07-17 18:28,declined_price,790.0,Lunchtime session for a team
+2026-07-13-A,2026-07-13 13:42,email,school_event,en,school,60608,2026-07-14 06:45,2026-07-14 17:49,,,,,2026-07-23 01:12,no_reply_from_client,530.0,Wellness day for students
+2026-07-13-B,2026-07-13 15:32,instagram_dm,workshop,en,studio,60623,2026-07-14 01:06,2026-07-14 19:50,2026-07-19 18:30,2026-07-31 11:09,,2026-07-31 17:59,,,130.0,
+2026-07-13-C,2026-07-13 17:02,text_message,private_session,es,individual,,2026-07-14 03:29,2026-07-14 12:12,,,,,2026-07-26 03:35,scheduling_conflict,100.0,Asked about a weekly private session
+2026-07-14-A,2026-07-14 13:06,instagram_dm,school_event,both,school,,2026-07-15 04:49,,,,,,2026-07-21 13:21,no_reply_from_client,,Wellness day for students
+2026-07-15-A,2026-07-15 17:32,instagram_dm,private_session,both,individual,,2026-07-17 02:39,2026-07-18 02:39,,,,,2026-07-26 15:15,no_reply_from_client,120.0,Asked about a weekly private session
+2026-07-16-A,2026-07-16 09:04,instagram_dm,school_event,es,school,60625,2026-07-17 04:49,2026-07-17 19:43,,,,,2026-07-22 18:14,declined_price,300.0,Wellness day for students
+2026-07-16-B,2026-07-16 11:04,instagram_dm,workshop,en,nonprofit_community,60605,2026-07-18 05:43,2026-07-18 14:53,2026-07-20 20:58,2026-07-28 04:01,2026-07-28 21:03,2026-08-19 17:50,,,80.0,Weekend workshop
+2026-07-16-C,2026-07-16 12:39,instagram_dm,community_event,both,nonprofit_community,60607,,,,,,,2026-07-20 13:36,no_reply_from_client,,Free community class in the park
+2026-07-16-D,2026-07-16 17:11,instagram_dm,private_session,es,individual,,,,,,,,2026-07-27 12:35,no_reply_from_client,,Asked about a weekly private session
+2026-07-18-A,2026-07-18 14:56,email,other,en,other,60612,2026-07-19 09:22,2026-07-20 06:44,,,,,2026-08-01 13:27,declined_price,140.0,
+2026-07-20-A,2026-07-20 10:20,in_person,private_session,es,individual,,2026-07-20 14:16,2026-07-21 13:00,,,,,,,90.0,
+2026-07-20-B,2026-07-20 12:56,linktree_form,class_series,both,individual,,2026-07-22 17:18,2026-07-23 11:54,,,,,2026-07-25 12:07,declined_price,230.0,6-week beginner series
+2026-07-22-A,2026-07-22 13:04,text_message,corporate_session,en,company,60632,2026-07-22 15:50,2026-07-23 17:58,,,,,,,790.0,Lunchtime session for a team
+2026-07-22-B,2026-07-22 14:27,instagram_dm,private_session,en,individual,,2026-07-24 08:07,2026-07-25 12:48,2026-07-27 23:20,2026-08-03 20:16,,2026-08-04 02:03,,,110.0,
+2026-07-24-A,2026-07-24 10:48,instagram_dm,private_session,en,individual,,2026-07-24 22:36,2026-07-25 07:39,,,,,,,100.0,Asked about a weekly private session
+2026-07-26-A,2026-07-26 12:38,referral,private_session,both,individual,,2026-07-26 23:50,2026-07-27 12:28,,,,,2026-08-08 23:03,scheduling_conflict,90.0,Asked about a weekly private session
+2026-07-26-B,2026-07-26 13:15,referral,workshop,en,studio,,,,,,,,2026-07-30 02:04,no_reply_from_client,,Weekend workshop
+2026-07-29-A,2026-07-29 16:28,referral,small_group,en,individual,,2026-07-30 00:42,2026-07-30 12:58,2026-08-03 18:56,2026-08-10 12:39,,2026-08-08 12:39,,,120.0,
+2026-07-30-A,2026-07-30 13:17,instagram_dm,community_event,es,nonprofit_community,60625,2026-07-30 18:22,2026-07-31 00:03,,,,,,,390.0,
+2026-07-30-B,2026-07-30 13:19,phone_call,corporate_session,en,company,60609,2026-07-30 15:51,2026-07-31 18:35,,,,,2026-08-09 13:02,declined_price,340.0,
+2026-07-30-C,2026-07-30 14:35,referral,workshop,both,studio,60616,2026-07-30 20:44,2026-07-31 21:44,2026-08-01 02:34,2026-08-12 04:54,,2026-08-12 13:59,,,150.0,
+2026-07-31-A,2026-07-31 13:43,referral,corporate_session,es,company,60625,2026-08-01 10:13,2026-08-02 11:56,,,,,2026-08-05 20:38,declined_price,450.0,
+2026-07-31-B,2026-07-31 14:27,text_message,workshop,en,nonprofit_community,60618,2026-08-01 05:22,2026-08-01 17:13,2026-08-06 12:51,2026-08-13 07:34,2026-08-16 00:15,2026-08-29 18:18,,,110.0,
+2026-07-31-C,2026-07-31 15:25,email,small_group,es,individual,,2026-08-04 17:57,2026-08-05 01:31,,,,,2026-08-09 01:42,scheduling_conflict,120.0,Group of 4 friends
+2026-07-31-D,2026-07-31 16:46,email,community_event,en,nonprofit_community,60623,2026-08-01 06:02,,,,,,2026-08-11 12:13,scheduling_conflict,,
+2026-08-01-A,2026-08-01 14:16,instagram_dm,private_session,en,individual,,2026-08-02 20:55,2026-08-03 14:58,2026-08-07 09:40,2026-08-17 01:59,,2026-08-17 03:07,,,110.0,
+2026-08-02-A,2026-08-02 19:10,referral,school_event,en,school,60618,,,,,,,2026-08-14 04:15,no_reply_from_client,,Wellness day for students
+2026-08-03-A,2026-08-03 16:47,referral,class_series,es,individual,,2026-08-03 22:35,2026-08-04 22:37,2026-08-08 06:24,2026-08-12 09:49,,2026-08-12 15:05,,,150.0,
+2026-08-04-A,2026-08-04 08:02,email,private_session,es,individual,,,,,,,,2026-08-11 21:15,no_reply_from_client,,Asked about a weekly private session
+2026-08-06-A,2026-08-06 12:09,linktree_form,private_session,en,individual,,2026-08-08 14:12,2026-08-09 11:12,,,,,2026-08-18 07:33,no_reply_from_client,100.0,
+2026-08-06-B,2026-08-06 12:39,linktree_form,small_group,en,individual,,,,,,,,2026-08-10 21:39,no_reply_from_client,,Group of 4 friends
+2026-08-06-C,2026-08-06 14:52,instagram_dm,small_group,both,individual,,2026-08-06 19:47,2026-08-06 21:04,,,,,2026-08-16 20:04,cancelled,100.0,Group of 4 friends
+2026-08-06-D,2026-08-06 20:20,referral,small_group,both,individual,,2026-08-06 22:52,2026-08-07 20:22,2026-08-09 17:16,2026-08-20 00:55,,2026-08-20 22:54,,,190.0,Group of 4 friends
+2026-08-08-A,2026-08-08 13:17,email,private_session,both,individual,,2026-08-09 06:39,2026-08-10 01:09,2026-08-14 16:54,2026-08-21 22:31,,2026-08-25 14:38,,,100.0,Asked about a weekly private session
+2026-08-08-B,2026-08-08 16:08,in_person,class_series,en,studio,60622,2026-08-08 16:38,2026-08-09 08:18,,,,,2026-08-16 19:43,other,240.0,
+2026-08-12-A,2026-08-12 12:34,email,class_series,en,studio,,2026-08-16 10:18,2026-08-17 03:25,2026-08-20 23:27,2026-08-25 23:34,,2026-08-26 07:49,,,300.0,
+2026-08-12-B,2026-08-12 22:49,other,community_event,en,nonprofit_community,60629,,,,,,,2026-08-14 19:49,no_reply_from_client,,Free community class in the park
+2026-08-13-A,2026-08-13 19:51,linktree_form,class_series,es,individual,,2026-08-14 01:09,2026-08-15 06:11,2026-08-15 21:43,2026-08-21 00:17,,2026-08-22 11:00,,,150.0,
+2026-08-14-A,2026-08-14 08:43,instagram_dm,community_event,en,nonprofit_community,60609,2026-08-14 18:29,2026-08-14 19:06,2026-08-16 11:11,2026-08-17 12:51,2026-08-18 13:28,2026-09-03 18:15,,,360.0,Free community class in the park
+2026-08-14-B,2026-08-14 10:33,text_message,workshop,both,studio,60605,2026-08-14 11:48,2026-08-15 15:11,,,,,2026-08-23 04:55,scheduling_conflict,210.0,Weekend workshop
+2026-08-14-C,2026-08-14 14:00,phone_call,corporate_session,es,company,60605,2026-08-14 16:18,2026-08-15 17:46,2026-08-17 16:42,2026-08-22 19:37,2026-08-23 22:19,2026-08-29 15:11,,,700.0,Lunchtime session for a team
+2026-08-16-A,2026-08-16 07:11,referral,private_session,en,individual,,2026-08-16 20:46,2026-08-17 11:14,,,,,2026-08-29 01:04,declined_price,80.0,Asked about a weekly private session
+2026-08-17-A,2026-08-17 19:14,text_message,community_event,en,nonprofit_community,60608,2026-08-18 00:22,2026-08-18 04:27,2026-08-21 16:12,2026-08-24 07:15,2026-08-26 12:56,2026-09-03 20:59,,,230.0,
+2026-08-18-A,2026-08-18 15:28,linktree_form,class_series,en,individual,,2026-08-20 14:35,2026-08-21 15:10,2026-08-24 01:55,2026-09-04 09:24,,2026-09-04 22:59,,,250.0,6-week beginner series
+2026-08-19-A,2026-08-19 18:17,email,community_event,en,nonprofit_community,,2026-08-20 03:34,2026-08-20 08:39,,,,,2026-08-23 23:55,cancelled,370.0,
+2026-08-20-A,2026-08-20 12:58,text_message,workshop,es,studio,60625,2026-08-20 17:44,2026-08-20 21:58,,,,,2026-08-26 08:31,went_elsewhere,80.0,
+2026-08-20-B,2026-08-20 17:00,linktree_form,workshop,es,studio,60608,2026-08-20 20:19,2026-08-20 20:20,2026-08-25 13:34,2026-09-06 02:52,,2026-09-08 08:37,,,220.0,
+2026-08-22-A,2026-08-22 13:22,text_message,small_group,both,individual,,2026-08-23 05:11,,,,,,,,,
+2026-08-24-A,2026-08-24 07:25,phone_call,corporate_session,en,company,60618,2026-08-24 08:58,,,,,,2026-09-01 01:26,no_reply_from_client,,Lunchtime session for a team
+2026-08-28-A,2026-08-28 14:58,instagram_dm,private_session,es,individual,,2026-08-30 05:52,2026-08-30 18:32,,,,,2026-09-03 02:31,no_reply_from_client,120.0,Asked about a weekly private session
+2026-08-29-A,2026-08-29 17:29,linktree_form,class_series,en,individual,,2026-09-01 22:29,2026-09-02 23:17,,,,,2026-09-08 12:37,no_reply_from_client,300.0,6-week beginner series
+2026-08-29-B,2026-08-29 18:03,linktree_form,private_session,en,individual,,2026-08-30 03:33,2026-08-31 03:13,,,,,2026-09-09 03:38,scheduling_conflict,130.0,
+2026-08-29-C,2026-08-29 20:20,linktree_form,private_session,es,individual,,2026-08-30 02:16,2026-08-31 02:38,2026-08-31 10:21,2026-09-06 19:30,,2026-09-06 22:29,,,90.0,Asked about a weekly private session
+2026-08-31-A,2026-08-31 13:04,instagram_dm,private_session,es,individual,,2026-09-01 02:00,,,,,,,,,Asked about a weekly private session
+2026-09-01-A,2026-09-01 16:32,instagram_dm,class_series,other,studio,60612,,,,,,,,,,6-week beginner series
+2026-09-01-B,2026-09-01 19:09,other,private_session,en,individual,,2026-09-04 12:43,2026-09-05 11:13,,,,,,,120.0,
+2026-09-03-A,2026-09-03 12:28,other,private_session,en,individual,,2026-09-04 02:47,2026-09-04 13:12,,,,,2026-09-14 01:16,declined_price,130.0,
+2026-09-03-B,2026-09-03 13:57,instagram_dm,community_event,en,nonprofit_community,60640,2026-09-03 17:50,2026-09-04 17:51,2026-09-09 06:44,2026-09-11 11:12,2026-09-13 16:32,2026-09-14 12:01,,,240.0,Free community class in the park
+2026-09-04-A,2026-09-04 13:01,referral,small_group,en,individual,,2026-09-04 17:10,,,,,,2026-09-12 00:48,no_reply_from_client,,
+2026-09-04-B,2026-09-04 18:41,instagram_dm,corporate_session,en,company,60647,2026-09-05 07:18,2026-09-05 17:17,2026-09-08 13:11,2026-09-12 05:37,2026-09-12 19:51,2026-09-22 13:36,,,670.0,
+2026-09-07-A,2026-09-07 22:19,text_message,private_session,en,individual,,2026-09-08 00:19,2026-09-08 12:37,,,,,2026-09-14 01:09,scheduling_conflict,100.0,
+2026-09-08-A,2026-09-08 10:21,referral,private_session,en,individual,,2026-09-08 20:15,2026-09-09 14:42,2026-09-11 07:20,2026-09-19 14:14,,2026-09-20 01:07,,,130.0,Asked about a weekly private session
+2026-09-11-A,2026-09-11 10:19,other,class_series,en,studio,60616,2026-09-12 14:05,2026-09-13 14:26,,,,,2026-09-25 01:56,scheduling_conflict,300.0,
+2026-09-12-A,2026-09-12 19:59,linktree_form,small_group,es,individual,,2026-09-12 21:16,2026-09-13 08:50,,,,,2026-09-14 20:26,declined_price,200.0,Group of 4 friends
+2026-09-17-A,2026-09-17 09:11,instagram_dm,private_session,es,individual,,2026-09-18 07:06,2026-09-18 10:47,,,,,2026-09-21 11:38,no_reply_from_client,130.0,Asked about a weekly private session
+2026-09-17-B,2026-09-17 21:33,text_message,private_session,es,individual,,2026-09-18 01:45,2026-09-18 14:31,2026-09-21 11:57,2026-09-26 11:27,,2026-09-27 05:18,,,100.0,Asked about a weekly private session
+2026-09-18-A,2026-09-18 09:03,linktree_form,school_event,es,school,60605,2026-09-19 13:35,2026-09-20 12:20,,,,,2026-09-30 16:54,no_reply_from_client,550.0,Wellness day for students
+2026-09-18-B,2026-09-18 11:57,referral,class_series,en,studio,,2026-09-19 11:44,2026-09-20 17:26,2026-09-22 23:57,2026-09-29 16:04,,2026-09-30 06:59,,,270.0,
+2026-09-18-C,2026-09-18 13:13,in_person,class_series,es,studio,60618,2026-09-18 15:01,,,,,,2026-09-25 18:32,scheduling_conflict,,
+2026-09-18-D,2026-09-18 15:58,instagram_dm,private_session,en,individual,,2026-09-18 18:07,,,,,,2026-09-27 18:29,declined_price,,
+2026-09-19-A,2026-09-19 10:43,text_message,small_group,es,individual,,2026-09-19 13:54,2026-09-20 13:58,,,,,2026-09-24 16:53,declined_price,170.0,Group of 4 friends
+2026-09-19-B,2026-09-19 17:55,in_person,small_group,en,individual,,2026-09-19 19:43,2026-09-21 01:24,,,,,2026-09-23 17:33,declined_price,160.0,Group of 4 friends
+2026-09-19-C,2026-09-19 18:27,instagram_dm,private_session,en,individual,,2026-09-19 22:31,2026-09-21 01:38,2026-09-23 09:29,2026-09-30 14:13,,2026-10-01 05:37,,,90.0,Asked about a weekly private session
+2026-09-20-A,2026-09-20 15:22,linktree_form,private_session,en,individual,,2026-09-22 02:12,,,,,,2026-09-27 11:00,other,,Asked about a weekly private session
+2026-09-20-B,2026-09-20 18:36,email,private_session,en,individual,,2026-09-23 18:10,2026-09-24 18:37,,,,,2026-10-08 03:53,no_reply_from_client,100.0,
+2026-09-21-A,2026-09-21 17:10,in_person,private_session,both,individual,,2026-09-21 22:37,2026-09-22 17:28,2026-09-26 21:05,2026-10-03 03:09,,2026-10-04 14:46,,,100.0,Asked about a weekly private session
+2026-09-22-A,2026-09-22 12:51,instagram_dm,private_session,both,individual,,,,,,,,2026-10-05 13:48,no_reply_from_client,,Asked about a weekly private session
+2026-09-22-B,2026-09-22 17:57,referral,class_series,en,individual,,2026-09-22 21:25,,,,,,2026-09-28 18:55,no_reply_from_client,,6-week beginner series
+2026-09-22-C,2026-09-22 18:54,text_message,private_session,en,individual,,2026-09-22 20:20,2026-09-23 07:19,2026-09-27 22:01,2026-10-05 00:50,,2026-10-05 02:44,,,130.0,Asked about a weekly private session
+2026-09-23-A,2026-09-23 14:30,text_message,private_session,en,individual,,2026-09-24 09:16,2026-09-24 23:21,2026-09-29 18:18,2026-10-11 12:44,,2026-10-13 15:55,,,140.0,Asked about a weekly private session
+2026-09-26-A,2026-09-26 16:19,linktree_form,private_session,es,individual,,,,,,,,2026-10-04 00:17,no_reply_from_client,,Asked about a weekly private session
+2026-09-27-A,2026-09-27 12:07,email,private_session,en,individual,,2026-09-27 15:53,2026-09-28 06:25,,,,,2026-10-06 07:07,no_reply_from_client,130.0,Asked about a weekly private session
+2026-09-27-B,2026-09-27 13:25,linktree_form,other,both,individual,,2026-10-01 19:11,2026-10-02 04:42,,,,,2026-10-11 10:46,no_reply_from_client,70.0,
+2026-09-27-C,2026-09-27 20:53,text_message,corporate_session,en,company,60647,2026-09-28 00:00,,,,,,2026-10-08 23:15,other,,Lunchtime session for a team
+2026-09-27-D,2026-09-27 22:00,instagram_dm,workshop,en,individual,,2026-09-28 19:35,2026-09-30 00:23,2026-10-02 17:20,2026-10-10 02:50,,2026-10-13 09:11,,,110.0,Weekend workshop
+2026-09-28-A,2026-09-28 07:15,linktree_form,community_event,both,nonprofit_community,60618,2026-09-28 12:58,2026-09-29 16:36,,,,,2026-10-04 10:37,went_elsewhere,330.0,Free community class in the park
+2026-09-28-B,2026-09-28 11:20,text_message,workshop,en,nonprofit_community,60605,2026-09-28 12:24,2026-09-29 06:46,,,,,2026-10-12 22:03,no_reply_from_client,70.0,Weekend workshop
+2026-09-28-C,2026-09-28 13:25,other,other,en,other,,2026-09-28 20:24,2026-09-29 16:22,2026-10-04 13:01,2026-10-12 03:05,,2026-10-13 21:34,,,80.0,
+2026-09-29-A,2026-09-29 15:36,text_message,corporate_session,es,company,,2026-09-29 20:04,,,,,,2026-10-12 05:06,scheduling_conflict,,Lunchtime session for a team
+2026-09-30-A,2026-09-30 07:20,referral,workshop,en,studio,60625,2026-09-30 10:53,2026-10-01 05:52,2026-10-01 18:38,2026-10-07 12:58,,2026-10-08 14:16,,,180.0,Weekend workshop
+2026-09-30-B,2026-09-30 15:48,phone_call,private_session,en,individual,,2026-09-30 17:18,2026-09-30 23:02,,,,,2026-10-12 02:10,declined_price,120.0,
+2026-10-01-A,2026-10-01 15:52,email,community_event,both,nonprofit_community,60609,2026-10-04 22:48,2026-10-06 00:58,,,,,2026-10-13 18:39,other,140.0,Free community class in the park
+2026-10-01-B,2026-10-01 18:33,instagram_dm,school_event,en,school,60616,2026-10-04 10:13,2026-10-05 13:10,2026-10-07 08:45,2026-10-09 02:12,2026-10-09 09:15,2026-10-21 03:04,,,340.0,
+2026-10-02-A,2026-10-02 12:29,linktree_form,private_session,both,individual,,2026-10-02 18:43,2026-10-02 23:24,2026-10-03 06:28,2026-10-13 17:08,,2026-10-14 19:25,,,130.0,Asked about a weekly private session
+2026-10-03-A,2026-10-03 11:52,linktree_form,small_group,both,individual,,2026-10-08 09:11,2026-10-08 20:52,2026-10-10 13:17,2026-10-21 04:22,,2026-10-22 04:13,,,170.0,Group of 4 friends
+2026-10-03-B,2026-10-03 18:51,linktree_form,private_session,both,individual,,2026-10-04 21:00,2026-10-05 04:53,,,,,2026-10-17 01:59,no_reply_from_client,80.0,Asked about a weekly private session
+2026-10-04-A,2026-10-04 14:43,text_message,private_session,en,individual,,2026-10-04 15:53,2026-10-04 18:43,2026-10-06 18:00,2026-10-11 05:35,,2026-10-13 21:54,,,110.0,Asked about a weekly private session
+2026-10-04-B,2026-10-04 19:33,text_message,class_series,en,individual,,2026-10-04 22:47,2026-10-05 09:56,2026-10-06 07:34,2026-10-10 22:55,,2026-10-11 01:58,,,190.0,6-week beginner series
+2026-10-04-C,2026-10-04 19:43,text_message,private_session,both,individual,,2026-10-04 23:04,2026-10-06 02:47,,,,,2026-10-17 16:59,no_reply_from_client,100.0,Asked about a weekly private session
+2026-10-05-A,2026-10-05 13:40,referral,private_session,both,individual,,2026-10-06 05:20,2026-10-06 08:26,,,,,2026-10-09 09:17,other,110.0,Asked about a weekly private session
+2026-10-06-A,2026-10-06 20:12,instagram_dm,small_group,en,individual,,2026-10-07 17:39,2026-10-07 21:20,2026-10-11 00:51,2026-10-19 08:01,,2026-10-21 16:09,,,90.0,
+2026-10-07-A,2026-10-07 13:36,in_person,community_event,en,nonprofit_community,60623,2026-10-07 14:19,2026-10-08 15:24,,,,,2026-10-20 12:20,no_reply_from_client,200.0,
+2026-10-07-B,2026-10-07 15:01,instagram_dm,private_session,en,individual,,2026-10-08 09:56,2026-10-09 07:59,2026-10-14 03:18,2026-10-23 06:18,,2026-10-23 12:21,,,80.0,Asked about a weekly private session
+2026-10-07-C,2026-10-07 16:50,other,private_session,en,individual,,2026-10-09 09:54,2026-10-10 05:37,,,,,2026-10-24 00:47,scheduling_conflict,120.0,Asked about a weekly private session
+2026-10-08-A,2026-10-08 18:13,phone_call,community_event,es,nonprofit_community,60609,2026-10-08 21:02,2026-10-10 02:16,,,,,2026-10-13 01:19,no_reply_from_client,100.0,
+2026-10-08-B,2026-10-08 19:45,linktree_form,class_series,es,individual,,2026-10-11 03:51,2026-10-12 06:58,,,,,,,180.0,
+2026-10-09-A,2026-10-09 11:24,referral,small_group,both,individual,,2026-10-10 08:48,,,,,,2026-10-18 00:04,no_reply_from_client,,Group of 4 friends
+2026-10-09-B,2026-10-09 21:15,instagram_dm,community_event,en,nonprofit_community,60614,2026-10-10 16:00,2026-10-11 07:32,2026-10-13 03:56,2026-10-15 02:30,2026-10-16 04:57,2026-10-24 04:17,,,240.0,Free community class in the park
+2026-10-10-A,2026-10-10 12:18,referral,private_session,en,individual,,2026-10-11 01:08,2026-10-11 18:14,,,,,2026-10-21 18:03,no_reply_from_client,120.0,Asked about a weekly private session
+2026-10-10-B,2026-10-10 14:32,text_message,private_session,en,individual,,2026-10-10 18:41,2026-10-10 21:27,,,,,,,110.0,Asked about a weekly private session
+2026-10-11-A,2026-10-11 16:24,instagram_dm,workshop,es,nonprofit_community,,2026-10-12 18:35,2026-10-12 18:56,,,,,2026-10-17 00:56,no_reply_from_client,380.0,Weekend workshop
+2026-10-11-B,2026-10-11 22:19,instagram_dm,community_event,both,nonprofit_community,60625,2026-10-12 09:08,2026-10-13 14:32,,,,,2026-10-18 22:02,no_reply_from_client,250.0,Free community class in the park
+2026-10-12-A,2026-10-12 07:05,linktree_form,class_series,en,studio,60623,2026-10-14 05:45,2026-10-14 06:07,2026-10-16 17:53,2026-10-23 08:57,,2026-10-27 19:36,,,290.0,6-week beginner series
+2026-10-12-B,2026-10-12 07:56,instagram_dm,private_session,both,individual,,2026-10-14 15:06,2026-10-15 11:02,,,,,2026-10-20 18:31,no_reply_from_client,100.0,Asked about a weekly private session
+2026-10-12-C,2026-10-12 18:34,instagram_dm,corporate_session,en,company,,2026-10-15 00:53,2026-10-15 04:11,,,,,2026-10-18 23:31,declined_price,500.0,Lunchtime session for a team
+2026-10-12-D,2026-10-12 19:07,instagram_dm,corporate_session,es,company,60614,2026-10-13 02:30,2026-10-13 09:39,2026-10-14 09:08,2026-10-24 12:52,2026-10-27 11:22,2026-10-29 08:16,,,460.0,
+2026-10-13-A,2026-10-13 07:59,text_message,school_event,en,school,60601,2026-10-13 12:52,2026-10-14 13:27,,,,,2026-10-18 08:07,declined_price,350.0,Wellness day for students
+2026-10-13-B,2026-10-13 09:10,email,class_series,es,studio,60614,,,,,,,2026-10-26 13:59,no_reply_from_client,,6-week beginner series
+2026-10-13-C,2026-10-13 12:58,text_message,corporate_session,en,company,60612,2026-10-13 17:47,2026-10-14 03:37,,,,,2026-10-18 14:05,no_reply_from_client,460.0,Lunchtime session for a team
+2026-10-13-D,2026-10-13 17:04,instagram_dm,other,en,other,,2026-10-14 00:37,2026-10-14 07:56,,,,,,,110.0,
+2026-10-13-E,2026-10-13 19:01,email,workshop,en,nonprofit_community,,2026-10-13 22:57,2026-10-14 13:15,2026-10-17 16:14,2026-10-27 07:43,2026-10-28 03:58,2026-11-02 17:15,,,170.0,Weekend workshop
+2026-10-14-A,2026-10-14 15:15,referral,private_session,both,individual,,2026-10-14 21:48,2026-10-15 22:02,2026-10-17 19:06,2026-10-27 18:55,,2026-10-29 14:54,,,130.0,
+2026-10-14-B,2026-10-14 17:28,referral,private_session,en,individual,,2026-10-15 07:12,2026-10-15 09:52,2026-10-18 16:12,2026-10-28 15:23,,2026-10-29 20:21,,,80.0,Asked about a weekly private session
+2026-10-14-C,2026-10-14 18:10,instagram_dm,small_group,en,individual,,2026-10-15 01:32,2026-10-15 15:41,2026-10-19 00:56,2026-10-29 05:45,,2026-10-29 15:23,,,190.0,Group of 4 friends
+2026-10-15-A,2026-10-15 15:46,instagram_dm,small_group,es,individual,,2026-10-15 20:07,2026-10-16 10:12,,,,,2026-10-18 23:09,no_reply_from_client,190.0,
+2026-10-15-B,2026-10-15 16:05,instagram_dm,corporate_session,en,company,60608,2026-10-16 04:08,2026-10-17 07:03,2026-10-17 12:16,2026-10-23 22:05,2026-10-25 07:38,2026-10-29 15:10,,,520.0,
+2026-10-16-A,2026-10-16 09:05,instagram_dm,workshop,en,studio,,2026-10-16 16:46,2026-10-16 19:16,2026-10-21 03:28,2026-10-27 03:16,,2026-10-27 18:10,,,350.0,Weekend workshop
+2026-10-16-B,2026-10-16 14:23,instagram_dm,private_session,en,individual,,2026-10-17 14:36,2026-10-17 17:29,,,,,2026-10-28 11:29,no_reply_from_client,110.0,Asked about a weekly private session
+2026-10-17-A,2026-10-17 16:43,text_message,workshop,en,studio,60612,2026-10-18 08:06,2026-10-19 04:08,2026-10-22 13:23,2026-11-02 04:00,,2026-11-02 22:57,,,90.0,Weekend workshop
+2026-10-18-A,2026-10-18 09:17,text_message,private_session,other,individual,,2026-10-18 22:05,2026-10-19 15:34,2026-10-24 09:25,2026-10-25 10:16,,2026-10-26 05:50,,,80.0,
+2026-10-18-B,2026-10-18 14:51,instagram_dm,community_event,both,nonprofit_community,60623,2026-10-19 03:41,2026-10-19 11:55,2026-10-21 20:29,2026-10-27 23:48,2026-10-29 17:28,,,,230.0,Free community class in the park
+2026-10-18-C,2026-10-18 17:29,referral,private_session,es,individual,,2026-10-19 04:20,2026-10-19 18:35,2026-10-22 23:40,2026-11-01 21:55,,2026-11-05 09:47,,,90.0,Asked about a weekly private session
+2026-10-19-A,2026-10-19 07:43,instagram_dm,small_group,en,individual,,2026-10-20 01:59,2026-10-20 09:44,,,,,2026-11-01 18:21,went_elsewhere,110.0,
+2026-10-20-A,2026-10-20 15:49,email,private_session,en,individual,,2026-10-22 05:54,2026-10-22 12:45,,,,,2026-10-28 08:42,no_reply_from_client,110.0,
+2026-10-24-A,2026-10-24 09:43,referral,corporate_session,es,company,60618,2026-10-24 15:05,2026-10-25 15:18,,,,,,,750.0,Lunchtime session for a team
+2026-10-24-B,2026-10-24 09:51,instagram_dm,class_series,both,individual,,2026-10-25 02:16,2026-10-26 03:15,2026-10-30 08:07,2026-11-10 11:15,,2026-11-11 00:48,,,300.0,
+2026-10-26-A,2026-10-26 13:31,linktree_form,community_event,es,nonprofit_community,60616,2026-10-26 15:39,2026-10-26 16:51,2026-10-30 08:56,2026-10-31 09:41,2026-11-02 22:32,,,,230.0,
+2026-10-27-A,2026-10-27 10:10,email,community_event,en,nonprofit_community,60614,2026-10-27 23:42,2026-10-28 19:23,2026-10-29 08:10,2026-10-31 02:06,2026-11-01 07:29,2026-11-02 06:51,,,320.0,Free community class in the park
+2026-10-27-B,2026-10-27 15:40,instagram_dm,class_series,en,individual,,2026-10-28 18:46,,,,,,2026-10-30 14:51,declined_price,,
+2026-10-27-C,2026-10-27 16:58,in_person,class_series,both,studio,60623,2026-10-27 17:12,2026-10-28 04:59,2026-11-02 01:03,2026-11-13 22:52,,2026-11-14 07:53,,,200.0,
+2026-10-28-A,2026-10-28 14:02,email,corporate_session,es,company,,2026-10-31 08:25,2026-10-31 17:58,,,,,2026-11-06 18:44,no_reply_from_client,480.0,
+2026-10-28-B,2026-10-28 20:39,referral,workshop,en,studio,60612,2026-10-30 10:51,2026-10-30 17:29,,,,,2026-11-04 00:10,scheduling_conflict,340.0,
+2026-10-29-A,2026-10-29 18:30,linktree_form,workshop,es,nonprofit_community,60605,2026-11-02 02:41,2026-11-03 02:45,,,,,2026-11-13 13:10,no_reply_from_client,260.0,Weekend workshop
+2026-10-29-B,2026-10-29 22:32,phone_call,private_session,both,individual,,,,,,,,2026-11-03 07:18,no_reply_from_client,,Asked about a weekly private session
+2026-10-30-A,2026-10-30 17:49,linktree_form,private_session,both,individual,,2026-11-06 09:38,2026-11-07 06:24,2026-11-11 14:25,,,,,,80.0,Asked about a weekly private session
+2026-10-30-B,2026-10-30 18:20,referral,workshop,both,nonprofit_community,,2026-10-31 05:01,2026-11-01 08:00,2026-11-02 02:15,2026-11-07 03:12,2026-11-07 13:34,2026-11-09 22:37,,,150.0,Weekend workshop
+2026-10-31-A,2026-10-31 16:58,other,private_session,es,individual,,2026-11-03 04:35,2026-11-03 20:45,,,,,2026-11-11 14:08,no_reply_from_client,140.0,Asked about a weekly private session
+2026-11-02-A,2026-11-02 11:12,linktree_form,corporate_session,es,company,60618,2026-11-02 14:08,2026-11-03 14:48,2026-11-07 02:12,2026-11-10 10:16,2026-11-11 11:14,,,,640.0,Lunchtime session for a team
+2026-11-06-A,2026-11-06 09:43,instagram_dm,workshop,es,studio,,2026-11-06 22:06,2026-11-07 04:44,2026-11-11 22:56,,,,,,240.0,Weekend workshop
+2026-11-08-A,2026-11-08 16:30,text_message,private_session,es,individual,,2026-11-08 19:13,2026-11-09 23:46,,,,,,,100.0,
+2026-11-10-A,2026-11-10 18:41,instagram_dm,workshop,both,individual,,2026-11-12 15:35,2026-11-12 19:46,,,,,,,240.0,
+2026-11-13-A,2026-11-13 12:32,text_message,school_event,es,school,60647,2026-11-13 17:01,2026-11-14 19:19,,,,,,,290.0,
+2026-11-13-B,2026-11-13 21:51,referral,community_event,en,nonprofit_community,60629,,,,,,,,,170.0,Free community class in the park
+2026-11-14-A,2026-11-14 12:52,instagram_dm,small_group,both,individual,,,,,,,,,,170.0,
+2026-11-15-A,2026-11-15 09:25,linktree_form,school_event,en,school,60616,,,,,,,,,320.0,Wellness day for students
+2026-11-15-B,2026-11-15 13:12,instagram_dm,other,en,other,60647,,,,,,,,,40.0,
+2026-06-08-A,2026-06-08 07:44,referral,school_event,en,school,60609,2026-06-09 06:35,2026-06-09 23:21,2026-06-13 22:06,2026-06-17 12:25,2026-06-18 08:38,2026-07-28 02:53,,,270.0,
