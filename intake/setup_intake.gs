@@ -159,8 +159,12 @@ function setup() {
   showLinks();
 }
 
-function buildFormA_() {
-  const f = FormApp.create('Primer Contacto – New request / Nueva solicitud');
+/** Builds Form A's questions. Pass an existing form to rewrite it in place (same link). */
+function buildFormA_(existing) {
+  const title = 'Primer Contacto – New request / Nueva solicitud';
+  const f = existing || FormApp.create(title);
+  clearItems_(f);
+  f.setTitle(title);
   f.setDescription('Log each request once, as soon as you can. Under 2 minutes.\n' +
     'Registra cada solicitud una vez, lo antes posible. Menos de 2 minutos.\n\n' + NO_NAMES);
   f.setConfirmationMessage('Saved. / Guardado.');
@@ -221,8 +225,11 @@ function replyTimeFromFormA_(answer, repliedAt, channel, received, submitted) {
  *   Section T2  ...                                   (each teacher section then jumps to Details)
  *   Details     stage, date, lost reason, amount, note
  */
-function buildFormB_() {
-  const f = FormApp.create('Primer Contacto – Stage update / Actualizar etapa');
+function buildFormB_(existing) {
+  const title = 'Primer Contacto – Stage update / Actualizar etapa';
+  const f = existing || FormApp.create(title);
+  clearItems_(f);
+  f.setTitle(title);
   f.setDescription('Use this each time a request moves. Under 30 seconds.\n' +
     'Úsalo cada vez que una solicitud avance. Menos de 30 segundos.');
   f.setConfirmationMessage('Updated. / Actualizado.');
@@ -362,6 +369,54 @@ function showLinks() {
   Logger.log('Request Log (sheet):      ' + SpreadsheetApp.openById(p.getProperty('SHEET_ID')).getUrl());
   Logger.log('Form A, New request:      ' + FormApp.openById(p.getProperty('FORM_A_ID')).getPublishedUrl());
   Logger.log('Form B, Stage update:     ' + FormApp.openById(p.getProperty('FORM_B_ID')).getPublishedUrl());
+}
+
+/**
+ * Applies a new version of this script to the EXISTING forms and sheet.
+ * Run this after pasting new code: the links, the triggers and all logged requests stay.
+ * Use resetSetup() + setup() only if you really want brand-new forms.
+ */
+function updateForms() {
+  const p = PropertiesService.getScriptProperties();
+  if (!p.getProperty('SHEET_ID')) throw new Error('Not set up yet. Run setup() first.');
+  const lock = LockService.getScriptLock();
+  lock.waitLock(30000);
+  try {
+    buildFormA_(FormApp.openById(p.getProperty('FORM_A_ID')));
+    buildFormB_(FormApp.openById(p.getProperty('FORM_B_ID')));
+    migrateColumns_();
+  } finally {
+    lock.releaseLock();
+  }
+  refreshOpenRequests();
+  Logger.log('Forms updated in place. The links have not changed.');
+  showLinks();
+}
+
+/** Brings the Requests tab in line with COLUMNS, keeping every value under its column name. */
+function migrateColumns_() {
+  const sheet = sheet_();
+  const data = sheet.getDataRange().getValues();
+  const header = data[0];
+  if (header.join('|') === COLUMNS.join('|')) return;
+  const dropped = header.filter(h => h && COLUMNS.indexOf(h) === -1);
+  if (dropped.length) {
+    throw new Error('These columns would be lost: ' + dropped.join(', ') +
+      '. Add them back to COLUMNS, or copy the sheet first.');
+  }
+  const rows = data.slice(1).map(r => COLUMNS.map(c => {
+    const i = header.indexOf(c);
+    return i === -1 ? '' : r[i];
+  }));
+  sheet.clearContents();
+  sheet.getRange(1, 1, 1, COLUMNS.length).setValues([COLUMNS]).setFontWeight('bold');
+  if (rows.length) sheet.getRange(2, 1, rows.length, COLUMNS.length).setValues(rows);
+  Logger.log('Requests tab columns updated.');
+}
+
+/** Deletes every question and section from a form (its link and responses are kept). */
+function clearItems_(form) {
+  form.getItems().forEach(item => form.deleteItem(item));
 }
 
 /** Removes triggers and stored IDs so setup() can run again. Does not delete the old sheet or forms. */
