@@ -8,21 +8,22 @@ Primer Contacto's intake is two Google Forms that feed one Google Sheet. Teacher
 | **Form B: Stage update** | One each time a request moves, under 30 seconds | Teacher |
 | **Request Log sheet** | One row per request, in the wide CSV format the app reads | Nobody edits it by hand |
 
-Each teacher gets their own forms and sheet (one setup per teacher).
+All pilot teachers share one set of forms and one sheet. Each teacher picks their name first; in Form B they only ever see their own requests. The sheet stores a code (`T1`, `T2`, …), never the name.
 
 **Privacy:** the forms never ask for client names, Instagram handles, phone numbers, emails or street addresses. Requests are identified by an ID like `2026-11-14-A`.
 
 ---
 
-## Part 1: Set up (once per teacher, about 5 minutes)
+## Part 1: Set up (once for the whole pilot, about 5 minutes)
 
 1. Sign in to the Google account that will own the sheet, and go to **script.google.com** → **New project**.
 2. Click **Untitled project** at the top left and rename it **Primer Contacto – Intake**.
 3. Open `Code.gs`, delete everything in it, and paste in all of [`intake/setup_intake.gs`](../intake/setup_intake.gs).
-4. Click the gear icon (**Project Settings**) and tick **Show "appsscript.json" manifest file in editor**. Back in the editor, open `appsscript.json` and replace its contents with [`intake/appsscript.json`](../intake/appsscript.json).
-5. Click **Save**. Choose **setup** in the function menu at the top and click **Run**.
-6. Approve the permissions: **Review permissions** → your account → **Advanced** → **Go to Primer Contacto – Intake (unsafe)** → **Allow**. "Unsafe" only means Google hasn't reviewed your own script.
-7. Wait 30–60 seconds. The **Execution log** prints three links: the Request Log sheet, Form A and Form B.
+4. Near the top of `Code.gs`, find `CONFIG.teachers` and replace `Teacher 1` … `Teacher 4` with the pilot teachers' names (keep the codes `T1` … `T4`). Do this only in Apps Script; never commit real names to GitHub.
+5. Click the gear icon (**Project Settings**) and tick **Show "appsscript.json" manifest file in editor**. Back in the editor, open `appsscript.json` and replace its contents with [`intake/appsscript.json`](../intake/appsscript.json).
+6. Click **Save**. Choose **setup** in the function menu at the top and click **Run**.
+7. Approve the permissions: **Review permissions** → your account → **Advanced** → **Go to Primer Contacto – Intake (unsafe)** → **Allow**. "Unsafe" only means Google hasn't reviewed your own script.
+8. Wait 30–60 seconds. The **Execution log** prints three links: the Request Log sheet, Form A and Form B.
 
 You don't need **Deploy**. The script runs through two triggers that `setup` installs; you can see them under the clock icon (**Triggers**): `onNewRequest` and `onStageUpdate`.
 
@@ -36,6 +37,7 @@ Run `showLinks` any time to print the links again.
 
 | Question | What to enter |
 |---|---|
+| Who are you? | Your name |
 | When did the request arrive? | The time it arrived, not the time you're logging it |
 | Where did it come from? | Instagram DM, Linktree form, text, email, phone, in person, referral, other |
 | Request type | Private session, small group, corporate, school event, community event, workshop, class series, other |
@@ -45,13 +47,14 @@ Run `showLinks` any time to print the links again.
 | Quoted amount *(optional)* | USD, if you already quoted |
 | What did they ask for? *(optional)* | Short description. No names, handles or numbers |
 
-The sheet gets a new row with an ID such as `2026-11-14-A`, outcome **open**, last stage **received**.
+The sheet gets a new row with an ID such as `2026-11-14-A`, your teacher code, outcome **open**, last stage **received**.
 
 **Each time the request moves, fill in Form B:**
 
 | Question | What to enter |
 |---|---|
-| Request ID | Pick it from the list (open requests, newest first) |
+| Who are you? | Your name. The form jumps to your own section |
+| Request ID | Pick it from the list (only your open requests, newest first) |
 | New stage | Replied, Quoted, Confirmed, Delivered, Invoiced, Paid, or Lost |
 | When did it happen? | Date and time of that step |
 | If lost: why? | No reply from client, declined price, scheduling conflict, went elsewhere, cancelled, other |
@@ -72,13 +75,13 @@ Keep the sheet's **Requests** tab open and refresh it after each step. Reload Fo
 
 | # | Form | Enter | Check in the sheet |
 |---|---|---|---|
-| 1 | A | Today 10:00, Instagram DM, Private session, English, Individual | New row `<today>-A`, outcome **open**, last_stage **received** |
-| 2 | A | Today 11:00, Email, Corporate session, Both, Company, ZIP 60601 | Row `<today>-B`, event_zip **60601** |
-| 3 | B | Pick the open requests list | Shows both requests, newest first |
-| 4 | B | `-A` → Replied, today 10:30 | replied_at filled, last_stage **replied** |
-| 5 | B | `-A` → Quoted, today 11:00, amount 90 | quoted_at filled, quoted_amount **$90.00** |
-| 6 | B | `-A` → Confirmed, then Delivered, then Paid | outcome **delivered_paid**; `-A` drops off Form B's list |
-| 7 | B | `-B` → Lost, reason Declined price | lost_at filled, lost_reason **declined_price**, outcome **lost**; list shows "No open requests yet" |
+| 1 | A | Teacher 1; today 10:00, Instagram DM, Private session, English, Individual | New row `<today>-A`, teacher_id **T1**, outcome **open**, last_stage **received** |
+| 2 | A | Teacher 2; today 11:00, Email, Corporate session, Both, Company, ZIP 60601 | Row `<today>-B`, teacher_id **T2**, event_zip **60601** |
+| 3 | B | Choose Teacher 1, click Next | Only `-A` is listed; `-B` (Teacher 2's) is not |
+| 4 | B | Teacher 1: `-A` → Replied, today 10:30 | replied_at filled, last_stage **replied** |
+| 5 | B | Teacher 1: `-A` → Quoted, today 11:00, amount 90 | quoted_at filled, quoted_amount **$90.00** |
+| 6 | B | Teacher 1: `-A` → Confirmed, then Delivered, then Paid | outcome **delivered_paid**; Teacher 1's list shows "No open requests yet" |
+| 7 | B | Teacher 2: `-B` → Lost, reason Declined price | lost_at filled, lost_reason **declined_price**, outcome **lost** |
 | 8 | Phone | Open both forms | They load cleanly; one new request takes under 2 minutes |
 
 If every check matches, the intake works.
@@ -88,7 +91,7 @@ If every check matches, the intake works.
 - **Form B's list didn't change:** reload the form; Google caches it for a few seconds.
 - **"Already set up" error:** `setup` refuses to run twice so nothing is duplicated. Run `resetSetup` first only if you really want new forms.
 
-**Before giving the forms to a teacher:** delete the test rows, or run `resetSetup` then `setup` to create fresh forms and a clean sheet (the links change, so send the new ones).
+**Before giving the forms to the teachers:** delete the test rows, or run `resetSetup` then `setup` to create fresh forms and a clean sheet (the links change, so send the new ones).
 
 ---
 
@@ -102,7 +105,7 @@ python generate_synthetic.py --clean            # no injected problems
 
 | File | What's in it |
 |---|---|
-| `data/synthetic_requests.csv` | 80 invented requests plus 1 duplicate, same columns as the sheet |
+| `data/synthetic_requests.csv` | 80 invented requests from 4 teachers (`T1`–`T4`) plus 1 duplicate, same columns as the sheet |
 | `data/synthetic_year.csv` | 400 requests over 12 months, for the seasonality metric (busier Sep 15 – Oct 15, quieter from late November) |
 | `*.issues.json` | IDs of rows with deliberate problems (duplicate ID, dates out of order, a stage after Lost) that `validate.py` must catch |
 

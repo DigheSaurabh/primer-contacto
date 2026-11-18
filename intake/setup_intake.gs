@@ -1,14 +1,17 @@
 /**
  * Primer Contacto: intake setup (Google Apps Script)
  *
- * Builds the two forms in docs/schema.md and one Google Sheet:
+ * Builds the two forms in docs/schema.md and one Google Sheet, shared by all pilot teachers:
  *   Form A  "New request / Nueva solicitud"         one per request, under 2 minutes
  *   Form B  "Stage update / Actualizar etapa"       one per movement, under 30 seconds
  *   Sheet   "Primer Contacto – Request Log"         tab "Requests": one row per request,
  *                                                   in the wide CSV format from docs/schema.md
  *
- * One setup per teacher: each teacher gets their own forms and sheet.
+ * Each teacher picks their name first. The sheet stores only a code (T1, T2, ...).
+ * In Form B each teacher is sent to their own section, which lists only their open requests.
+ *
  * Privacy: no client names, handles, phone numbers, emails or street addresses are asked for.
+ * Put the real teacher names in CONFIG.teachers in your Apps Script copy only; don't commit them.
  *
  * Setup and testing steps: docs/tutorial.md
  */
@@ -16,12 +19,19 @@
 const CONFIG = {
   timeZone: 'America/Chicago',
   sheetName: 'Primer Contacto – Request Log',
+  // [code stored in the sheet, name shown on the forms]. Edit names in Apps Script, not in GitHub.
+  teachers: [
+    ['T1', 'Teacher 1'],
+    ['T2', 'Teacher 2'],
+    ['T3', 'Teacher 3'],
+    ['T4', 'Teacher 4'],
+  ],
 };
 
 // Requests tab columns: the wide CSV format from docs/schema.md, then computed fields.
 const COLUMNS = [
-  'request_id', 'received_at', 'channel', 'request_type', 'language', 'client_type', 'event_zip',
-  'replied_at', 'quoted_at', 'confirmed_at', 'delivered_at', 'invoiced_at', 'paid_at',
+  'request_id', 'teacher_id', 'received_at', 'channel', 'request_type', 'language', 'client_type',
+  'event_zip', 'replied_at', 'quoted_at', 'confirmed_at', 'delivered_at', 'invoiced_at', 'paid_at',
   'lost_at', 'lost_reason', 'quoted_amount', 'note',
   // computed by the script, not entered
   'outcome', 'last_stage', 'update_notes', 'logged_at',
@@ -88,6 +98,7 @@ const NO_NAMES = 'No names, handles or phone numbers. / Sin nombres, usuarios ni
 
 // Question titles (also used to read answers back)
 const Q = {
+  teacher: 'Who are you? / ¿Quién eres?',
   received: 'When did the request arrive? / ¿Cuándo llegó la solicitud?',
   channel: 'Where did it come from? / ¿Por dónde llegó?',
   type: 'Request type / Tipo de solicitud',
@@ -96,7 +107,7 @@ const Q = {
   zip: 'Event ZIP code (optional) / Código postal del evento (opcional)',
   amount: 'Quoted amount, USD (optional) / Monto cotizado, USD (opcional)',
   note: 'What did they ask for? (optional) / ¿Qué pidieron? (opcional)',
-  request: 'Request ID / ID de la solicitud',
+  request: 'Request ID / ID de la solicitud', // Form B: one per teacher, title + ' · ' + code
   stage: 'New stage / Nueva etapa',
   stageAt: 'When did it happen? / ¿Cuándo pasó?',
   lostReason: 'If lost: why? / Si se perdió: ¿por qué?',
@@ -119,7 +130,7 @@ function setup() {
   sheet.setName('Requests');
   sheet.getRange(1, 1, 1, COLUMNS.length).setValues([COLUMNS]).setFontWeight('bold');
   sheet.setFrozenRows(1);
-  sheet.setFrozenColumns(1);
+  sheet.setFrozenColumns(2);
   ['received_at', 'replied_at', 'quoted_at', 'confirmed_at', 'delivered_at', 'invoiced_at',
     'paid_at', 'lost_at', 'logged_at']
     .forEach(c => sheet.getRange(2, col_(c), 1000, 1).setNumberFormat('yyyy-mm-dd hh:mm'));
@@ -145,9 +156,10 @@ function buildFormA_() {
   const f = FormApp.create('Primer Contacto – New request / Nueva solicitud');
   f.setDescription('Log each request once, as soon as you can. Under 2 minutes.\n' +
     'Registra cada solicitud una vez, lo antes posible. Menos de 2 minutos.\n\n' + NO_NAMES);
-  f.setConfirmationMessage('Saved. Your request ID is in the Request Log. / Guardado.');
+  f.setConfirmationMessage('Saved. / Guardado.');
   f.setShowLinkToRespondAgain(true);
 
+  f.addListItem().setTitle(Q.teacher).setChoiceValues(teacherNames_()).setRequired(true);
   f.addDateTimeItem().setTitle(Q.received).setRequired(true)
     .setHelpText('When it arrived, not when you are logging it. / Cuándo llegó, no cuándo la registras.');
   f.addListItem().setTitle(Q.channel).setChoiceValues(labels_('channel')).setRequired(true);
@@ -169,6 +181,13 @@ function buildFormA_() {
   return f;
 }
 
+/**
+ * Form B layout:
+ *   Section 1   "Who are you?"  (each name jumps to that teacher's section)
+ *   Section T1  Request ID list with only T1's open requests
+ *   Section T2  ...                                   (each teacher section then jumps to Details)
+ *   Details     stage, date, lost reason, amount, note
+ */
 function buildFormB_() {
   const f = FormApp.create('Primer Contacto – Stage update / Actualizar etapa');
   f.setDescription('Use this each time a request moves. Under 30 seconds.\n' +
@@ -176,7 +195,16 @@ function buildFormB_() {
   f.setConfirmationMessage('Updated. / Actualizado.');
   f.setShowLinkToRespondAgain(true);
 
-  f.addListItem().setTitle(Q.request).setChoiceValues([NO_OPEN]).setRequired(true);
+  const who = f.addListItem().setTitle(Q.teacher).setRequired(true);
+
+  const sections = CONFIG.teachers.map(([code, name]) => {
+    const page = f.addPageBreakItem().setTitle(name);
+    f.addListItem().setTitle(requestTitle_(code)).setChoiceValues([NO_OPEN]).setRequired(true)
+      .setHelpText('Only your open requests, newest first. / Solo tus solicitudes abiertas.');
+    return page;
+  });
+
+  const details = f.addPageBreakItem().setTitle('What happened? / ¿Qué pasó?');
   f.addListItem().setTitle(Q.stage).setChoiceValues(labels_('stage')).setRequired(true);
   f.addDateTimeItem().setTitle(Q.stageAt).setRequired(true);
   f.addListItem().setTitle(Q.lostReason).setChoiceValues(labels_('lost_reason'))
@@ -188,6 +216,12 @@ function buildFormB_() {
       .setHelpText('Numbers only. / Solo números.')
       .build());
   f.addParagraphTextItem().setTitle(Q.updateNote).setHelpText(NO_NAMES);
+
+  // Name -> that teacher's section.
+  who.setChoices(CONFIG.teachers.map(([, name], i) => who.createChoice(name, sections[i])));
+  // After a teacher's section, skip the other teachers' sections and go to Details.
+  // (A page break's "go to" applies to the section just before it.)
+  sections.slice(1).forEach(page => page.setGoToPage(details));
   return f;
 }
 
@@ -205,6 +239,7 @@ function onNewRequest(e) {
 
     const row = {
       request_id: nextId_(sheet, received),
+      teacher_id: teacherCode_(a[Q.teacher]),
       received_at: received,
       channel: code_('channel', a[Q.channel]),
       request_type: code_('request_type', a[Q.type]),
@@ -229,7 +264,9 @@ function onStageUpdate(e) {
   lock.waitLock(30000);
   try {
     const a = answers_(e.response);
-    const id = String(a[Q.request] || '').split(' · ')[0];
+    const teacher = teacherCode_(a[Q.teacher]);
+    const picked = a[requestTitle_(teacher)];
+    const id = String(picked || '').split(' · ')[0];
     const sheet = sheet_();
     const rowNum = findRow_(sheet, id);
     if (!rowNum) return; // placeholder or unknown ID
@@ -238,6 +275,7 @@ function onStageUpdate(e) {
     const values = range.getValues()[0];
     const r = {};
     COLUMNS.forEach((c, i) => (r[c] = values[i]));
+    if (r.teacher_id !== teacher) return; // never update another teacher's request
 
     const stage = code_('stage', a[Q.stage]);
     const when = parseDateTime_(a[Q.stageAt]) || e.response.getTimestamp();
@@ -262,19 +300,22 @@ function onStageUpdate(e) {
   }
 }
 
-/** Rebuilds Form B's request list: open requests only, newest first. */
+/** Rebuilds each teacher's request list in Form B: their open requests only, newest first. */
 function refreshOpenRequests() {
   const props = PropertiesService.getScriptProperties();
-  const item = FormApp.openById(props.getProperty('FORM_B_ID'))
-    .getItems(FormApp.ItemType.LIST)
-    .find(i => i.getTitle() === Q.request).asListItem();
-
+  const lists = FormApp.openById(props.getProperty('FORM_B_ID')).getItems(FormApp.ItemType.LIST);
   const typeShort = Object.fromEntries(CHOICES.request_type.map(([c, l]) => [c, l.split(' / ')[0]]));
   const open = sheet_().getDataRange().getValues().slice(1)
     .filter(v => v[0] && v[col_('outcome') - 1] === 'open')
-    .sort((x, y) => new Date(y[col_('received_at') - 1]) - new Date(x[col_('received_at') - 1]))
-    .map(v => [v[0], typeShort[v[col_('request_type') - 1]] || '', v[col_('last_stage') - 1]].join(' · '));
-  item.setChoiceValues(open.length ? open : [NO_OPEN]);
+    .sort((x, y) => new Date(y[col_('received_at') - 1]) - new Date(x[col_('received_at') - 1]));
+
+  CONFIG.teachers.forEach(([code]) => {
+    const item = lists.find(i => i.getTitle() === requestTitle_(code));
+    if (!item) return;
+    const mine = open.filter(v => v[col_('teacher_id') - 1] === code)
+      .map(v => [v[0], typeShort[v[col_('request_type') - 1]] || '', v[col_('last_stage') - 1]].join(' · '));
+    item.asListItem().setChoiceValues(mine.length ? mine : [NO_OPEN]);
+  });
 }
 
 // ---------------------------------------------------------------- utilities
@@ -292,7 +333,7 @@ function resetSetup() {
   PropertiesService.getScriptProperties().deleteAllProperties();
 }
 
-/** request_id = received date plus a letter: 2026-11-14-A, -B, … -Z, -AA. */
+/** request_id = received date plus a letter: 2026-11-14-A, -B, … -Z, -AA. Unique across teachers. */
 function nextId_(sheet, received) {
   const day = Utilities.formatDate(received, CONFIG.timeZone, 'yyyy-MM-dd');
   const n = sheet.getDataRange().getValues().slice(1)
@@ -300,6 +341,15 @@ function nextId_(sheet, received) {
   let i = n, letters = '';
   do { letters = String.fromCharCode(65 + (i % 26)) + letters; i = Math.floor(i / 26) - 1; } while (i >= 0);
   return day + '-' + letters;
+}
+
+function requestTitle_(code) { return Q.request + ' · ' + code; }
+
+function teacherNames_() { return CONFIG.teachers.map(([, name]) => name); }
+
+function teacherCode_(name) {
+  const hit = CONFIG.teachers.find(([, n]) => n === name);
+  return hit ? hit[0] : '';
 }
 
 function sheet_() {

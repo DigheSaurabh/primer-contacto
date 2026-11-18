@@ -3,7 +3,8 @@
 ## Form A: New request (one per request, under 2 minutes)
 | # | Field | Type | Options or rule |
 |---|---|---|---|
-| 1 | `request_id` | Assigned by the intake script | Received date plus a letter, e.g. `2026-10-22-A` |
+| 1 | `request_id` | Assigned by the intake script | Received date plus a letter, e.g. `2026-10-22-A`; unique across teachers |
+| 1b | `teacher_id` | Single choice (teacher picks their name) | Stored as a code: `T1`, `T2`, … Names stay in the Apps Script copy only |
 | 2 | `received_at` | Date and time | When the request arrived, not when it was logged |
 | 3 | `channel` | Single choice | Instagram DM; Linktree form; text message; email; phone call; in person; referral; other |
 | 4 | `request_type` | Single choice | Private session; small group; corporate session; school event; community event; workshop; class series; other |
@@ -16,7 +17,8 @@
 ## Form B: Stage update (one per movement, under 30 seconds)
 | # | Field | Type | Options or rule |
 |---|---|---|---|
-| 10 | `request_id` | Pick from a list of open requests | Must match Form A |
+| 10a | `teacher_id` | Single choice | Teacher picks their name; the form jumps to their own section |
+| 10 | `request_id` | Pick from a list of that teacher's open requests | Must match Form A |
 | 11 | `stage` | Single choice | Replied; Quoted; Confirmed; Delivered; Invoiced; Paid; Lost |
 | 12 | `stage_at` | Date and time | When it happened |
 | 13 | `lost_reason` | Single choice, shown if Lost | No reply from client; declined price; scheduling conflict; went elsewhere; cancelled; other |
@@ -32,6 +34,7 @@ One row per request. Only `request_id`, `received_at` and `channel` are required
 | `request_id` | text | Required, unique |
 | `received_at` | datetime | Required |
 | `channel` | text | Required, mapped to the Form A list |
+| `teacher_id` | text | Optional in imports; always filled by the intake forms (`T1`, `T2`, …) |
 | `request_type`, `language`, `client_type`, `event_zip` | text | Optional |
 | `replied_at`, `quoted_at`, `confirmed_at`, `delivered_at`, `invoiced_at`, `paid_at` | datetime | Optional; blank means the stage was not reached |
 | `lost_at`, `lost_reason` | datetime, text | Optional |
