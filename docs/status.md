@@ -19,6 +19,7 @@ Updated Nov 18, 2026. Update this file at the end of every working session.
 ## Open items
 
 - [ ] Paste the teacher-field script, put the real teacher names in `CONFIG.teachers` (Apps Script only), run `resetSetup` + `setup`, and repeat the checks in the tutorial, including on a phone
+- [ ] From now on, apply code changes with `updateForms` (links stay the same); lock the forms before the pilot
 - [ ] Tell Dr. Drury about the new `teacher_id` field and the reply question in Form A
 - [ ] Later (dbt layer): daily one-tap reply links for unanswered requests; count a request as replied when a later stage exists without a reply time, with the time marked unknown
 - [ ] Write `validate.py` (rules in schema.md); it should catch every row in `data/*.issues.json`

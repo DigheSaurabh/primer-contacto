@@ -29,6 +29,15 @@ You don't need **Deploy**. The script runs through two triggers that `setup` ins
 
 Run `showLinks` any time to print the links again.
 
+### When the script changes later
+
+1. Copy the new `intake/setup_intake.gs` from GitHub into `Code.gs`, put the teacher names back in `CONFIG.teachers`, and click **Save**.
+2. Choose **updateForms** and click **Run**.
+
+`updateForms` rewrites the questions on the forms you already have. **The links stay the same**, teachers keep their home-screen shortcuts, and every logged request stays in the sheet. If the new version adds a column, it's added to the Requests tab without moving any data.
+
+Only use `resetSetup` then `setup` if you want brand-new forms and an empty sheet (the links change).
+
 ---
 
 ## Part 2: Daily use (teacher)
@@ -91,7 +100,7 @@ If every check matches, the intake works.
 **If something goes wrong**
 - **No new row:** in the script editor open **Executions** (list icon on the left) and look for a red error.
 - **Form B's list didn't change:** reload the form; Google caches it for a few seconds.
-- **"Already set up" error:** `setup` refuses to run twice so nothing is duplicated. Run `resetSetup` first only if you really want new forms.
+- **"Already set up" error:** `setup` refuses to run twice so nothing is duplicated. To apply new code, run `updateForms` instead.
 
 **Before giving the forms to the teachers:** delete the test rows, or run `resetSetup` then `setup` to create fresh forms and a clean sheet (the links change, so send the new ones).
 
