@@ -75,6 +75,11 @@ const CHOICES = {
     ['studio', 'Studio / Estudio'],
     ['other', 'Other / Otro'],
   ],
+  replied: [
+    ['now', 'Yes, just now / Sí, ahora mismo'],
+    ['earlier', 'Yes, earlier / Sí, antes'],
+    ['not_yet', 'Not yet / Todavía no'],
+  ],
   stage: [
     ['replied', 'Replied / Respondí'],
     ['quoted', 'Quoted (price or proposal sent) / Cotizado'],
@@ -107,6 +112,8 @@ const Q = {
   zip: 'Event ZIP code (optional) / Código postal del evento (opcional)',
   amount: 'Quoted amount, USD (optional) / Monto cotizado, USD (opcional)',
   note: 'What did they ask for? (optional) / ¿Qué pidieron? (opcional)',
+  repliedYet: 'Have you replied? / ¿Ya respondiste?',
+  repliedAt: 'When did you reply? / ¿Cuándo respondiste?',
   request: 'Request ID / ID de la solicitud', // Form B: one per teacher, title + ' · ' + code
   stage: 'New stage / Nueva etapa',
   stageAt: 'When did it happen? / ¿Cuándo pasó?',
@@ -178,7 +185,33 @@ function buildFormA_() {
       .setHelpText('Numbers only. / Solo números.')
       .build());
   f.addParagraphTextItem().setTitle(Q.note).setHelpText(NO_NAMES);
+
+  // Most teachers log a request after answering it, so the reply is captured here.
+  // "Yes, earlier" jumps to a page asking when; the other answers submit the form.
+  const replied = f.addMultipleChoiceItem().setTitle(Q.repliedYet).setRequired(true)
+    .setHelpText('A phone call you answered or an in-person conversation counts as replied when it arrived.\n' +
+      'Una llamada que contestaste o una conversación en persona cuenta como respondida al llegar.');
+  const whenPage = f.addPageBreakItem().setTitle('Reply time / Hora de respuesta');
+  f.addDateTimeItem().setTitle(Q.repliedAt).setRequired(true);
+  replied.setChoices(CHOICES.replied.map(([code, label]) =>
+    replied.createChoice(label, code === 'earlier' ? whenPage : FormApp.PageNavigationType.SUBMIT)));
   return f;
+}
+
+/**
+ * Reply time from Form A.
+ *   not_yet             -> blank (logged later in Form B)
+ *   phone / in person   -> the arrival time: answering the call or talking is the reply
+ *   earlier             -> the time given (never before arrival)
+ *   now                 -> the submission time
+ */
+function replyTimeFromFormA_(answer, repliedAt, channel, received, submitted) {
+  if (answer === 'not_yet' || !answer) return null;
+  let t;
+  if (answer === 'earlier') t = repliedAt || submitted;
+  else if (channel === 'phone_call' || channel === 'in_person') t = received;
+  else t = submitted;
+  return t < received ? received : t;
 }
 
 /**
@@ -236,20 +269,24 @@ function onNewRequest(e) {
     const received = parseDateTime_(a[Q.received]) || now;
     const amount = a[Q.amount];
     const sheet = sheet_();
+    const channel = code_('channel', a[Q.channel]);
+    const repliedAt = replyTimeFromFormA_(code_('replied', a[Q.repliedYet]),
+      parseDateTime_(a[Q.repliedAt]), channel, received, now);
 
     const row = {
       request_id: nextId_(sheet, received),
       teacher_id: teacherCode_(a[Q.teacher]),
       received_at: received,
-      channel: code_('channel', a[Q.channel]),
+      channel: channel,
       request_type: code_('request_type', a[Q.type]),
       language: code_('language', a[Q.language]),
       client_type: code_('client_type', a[Q.clientType]),
       event_zip: a[Q.zip] || '',
+      replied_at: repliedAt || '',
       quoted_amount: amount !== undefined && amount !== '' ? Number(amount) : '',
       note: a[Q.note] || '',
       outcome: 'open',
-      last_stage: 'received',
+      last_stage: repliedAt ? 'replied' : 'received',
       logged_at: now,
     };
     sheet.appendRow(COLUMNS.map(c => (c in row ? row[c] : '')));

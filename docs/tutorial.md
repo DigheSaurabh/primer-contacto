@@ -46,8 +46,9 @@ Run `showLinks` any time to print the links again.
 | Event ZIP *(optional)* | 5-digit ZIP of the event, never a street address |
 | Quoted amount *(optional)* | USD, if you already quoted |
 | What did they ask for? *(optional)* | Short description. No names, handles or numbers |
+| Have you replied? | **Yes, just now**, **Yes, earlier** (then enter when), or **Not yet**. A phone call you answered or an in-person conversation counts as replied when it arrived |
 
-The sheet gets a new row with an ID such as `2026-11-14-A`, your teacher code, outcome **open**, last stage **received**.
+The sheet gets a new row with an ID such as `2026-11-14-A`, your teacher code and outcome **open**. If you've replied, replied_at is filled and last stage is **replied**; otherwise **received**.
 
 **Each time the request moves, fill in Form B:**
 
@@ -75,9 +76,10 @@ Keep the sheet's **Requests** tab open and refresh it after each step. Reload Fo
 
 | # | Form | Enter | Check in the sheet |
 |---|---|---|---|
-| 1 | A | Teacher 1; today 10:00, Instagram DM, Private session, English, Individual | New row `<today>-A`, teacher_id **T1**, outcome **open**, last_stage **received** |
-| 2 | A | Teacher 2; today 11:00, Email, Corporate session, Both, Company, ZIP 60601 | Row `<today>-B`, teacher_id **T2**, event_zip **60601** |
-| 3 | B | Choose Teacher 1, click Next | Only `-A` is listed; `-B` (Teacher 2's) is not |
+| 1 | A | Teacher 1; today 10:00, Instagram DM, Private session, English, Individual; replied: **Not yet** | New row `<today>-A`, teacher_id **T1**, outcome **open**, last_stage **received**, replied_at blank |
+| 2 | A | Teacher 2; today 11:00, Email, Corporate session, Both, Company, ZIP 60601; replied: **Yes, earlier**, today 11:20 | Row `<today>-B`, teacher_id **T2**, event_zip **60601**, replied_at **11:20**, last_stage **replied** |
+| 2b | A | Teacher 3; today 09:00, Phone call, Private session, Español, Individual; replied: **Yes, just now** | replied_at **09:00** (the arrival time, not now) |
+| 3 | B | Choose Teacher 1, click Next | Only `-A` is listed; Teacher 2's and 3's requests are not |
 | 4 | B | Teacher 1: `-A` → Replied, today 10:30 | replied_at filled, last_stage **replied** |
 | 5 | B | Teacher 1: `-A` → Quoted, today 11:00, amount 90 | quoted_at filled, quoted_amount **$90.00** |
 | 6 | B | Teacher 1: `-A` → Confirmed, then Delivered, then Paid | outcome **delivered_paid**; Teacher 1's list shows "No open requests yet" |

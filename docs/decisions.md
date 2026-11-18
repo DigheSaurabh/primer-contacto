@@ -4,6 +4,8 @@ Newest first: what was decided and why.
 
 ## Nov 18, 2026
 
+- **The reply is captured in Form A.** In a simulated pilot, teachers who forgot to log replies looked like they ignored half their requests. Most teachers log a request after answering it, so Form A now asks "Have you replied?". Phone calls and in-person requests count as replied at arrival, because answering is the reply. "Not yet" leaves it for Form B.
+
 - **One shared set of forms for all pilot teachers, with a `teacher_id` field.** Replaces "one setup per teacher" (Nov 14). Form A asks "Who are you?"; Form B sends each teacher to their own section, which lists only their open requests, and the script refuses an update to another teacher's request. One sheet makes teacher comparisons easy (the studio comparison view). *Schema change: tell Dr. Drury.*
 - **Teacher names are never stored or committed.** The sheet and the repo hold codes (`T1`…`T4`); the names live only in `CONFIG.teachers` in the Apps Script copy, matching the de-identified interviews (Teacher A, Teacher B).
 

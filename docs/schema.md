@@ -13,6 +13,7 @@
 | 7 | `event_zip` | Short text, optional | ZIP code of the event only, never a street address |
 | 8 | `quoted_amount` | Number, optional | USD, once a quote exists |
 | 9 | `note` | Long text, optional | What they asked for. No names, handles or phone numbers |
+| 9b | `replied_at` | "Have you replied?": Yes, just now / Yes, earlier (asks when) / Not yet | Just now = submission time. Phone call or in person = arrival time. Never earlier than `received_at`. Not yet = blank, logged later in Form B |
 
 ## Form B: Stage update (one per movement, under 30 seconds)
 | # | Field | Type | Options or rule |
