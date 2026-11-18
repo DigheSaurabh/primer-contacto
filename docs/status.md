@@ -1,10 +1,10 @@
 # Status
 
-Updated Nov 14, 2026. Update this file at the end of every working session.
+Updated Nov 18, 2026. Update this file at the end of every working session.
 
 ## Where things stand
 
-- **Intake:** Form A, Form B and the Request Log are built ([tutorial](tutorial.md)). An earlier version was set up and tested in Google on Nov 12; it collected client names, so it was reworked on Nov 14 to match [schema.md](schema.md). The new version needs one more setup and test run.
+- **Intake:** Form A, Form B and the Request Log are built ([tutorial](tutorial.md)). The no-names version was set up in Google on Nov 18. On Nov 18 a `teacher_id` field was added so all pilot teachers share one set of forms; this version needs one more setup and test run.
 - **Synthetic data:** generator and two data files are in the repo. `validate.py` isn't written yet.
 - **Next gate:** Gate 2, Nov 20, 2026: public app with every metric.
 
@@ -18,7 +18,8 @@ Updated Nov 14, 2026. Update this file at the end of every working session.
 
 ## Open items
 
-- [ ] Re-run setup with the new script and repeat the checks in the tutorial, including on a phone
+- [ ] Paste the teacher-field script, put the real teacher names in `CONFIG.teachers` (Apps Script only), run `resetSetup` + `setup`, and repeat the checks in the tutorial, including on a phone
+- [ ] Tell Dr. Drury about the new `teacher_id` field
 - [ ] Write `validate.py` (rules in schema.md); it should catch every row in `data/*.issues.json`
 - [ ] Gate 1 status: confirm with Dr. Drury whether it was signed off
 - [ ] Teacher interviews (`docs/interviews.md` is still empty) and 3 written pilot agreements

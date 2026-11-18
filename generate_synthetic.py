@@ -23,10 +23,11 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 COLUMNS = [
-    "request_id", "received_at", "channel", "request_type", "language", "client_type", "event_zip",
+    "request_id", "teacher_id", "received_at", "channel", "request_type", "language", "client_type", "event_zip",
     "replied_at", "quoted_at", "confirmed_at", "delivered_at", "invoiced_at", "paid_at",
     "lost_at", "lost_reason", "quoted_amount", "note",
 ]
+TEACHERS = ["T1", "T2", "T3", "T4"]  # codes only; real names never leave the Apps Script copy
 STAGES = ["received", "replied", "quoted", "confirmed", "delivered", "invoiced", "paid"]
 
 # channel: (share, median first-reply delay in hours)
@@ -99,7 +100,7 @@ def generate(n: int, start: datetime, weeks: int, seed: int, clean: bool):
         rtype = pick(rng, TYPES)
         client_type = rng.choice(TYPES[rtype][1])
         r = {c: "" for c in COLUMNS}
-        r.update(received_at=received, channel=channel, request_type=rtype,
+        r.update(teacher_id=rng.choice(TEACHERS), received_at=received, channel=channel, request_type=rtype,
                  language=rng.choices(["en", "es", "both", "other"], weights=[55, 25, 18, 2])[0],
                  client_type=client_type, note=NOTES[rtype] if rng.random() < 0.6 else "")
         if client_type != "individual" and rng.random() < 0.8:
