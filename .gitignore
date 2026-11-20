@@ -27,3 +27,6 @@ data/raw/
 # Power BI temp files
 powerbi/*.pbix.bak
 ~$*
+
+# Pipeline output (may contain real pilot data)
+output/

@@ -1,6 +1,6 @@
 # Status
 
-Updated Nov 18, 2026. Update this file at the end of every working session.
+Updated Nov 20, 2026. Update this file at the end of every working session.
 
 ## Where things stand
 
@@ -16,13 +16,17 @@ Updated Nov 18, 2026. Update this file at the end of every working session.
 - Synthetic data generator and data (`generate_synthetic.py`, `data/`)
 - Tutorial for setup, daily use and testing (`docs/tutorial.md`)
 
+## Pipeline (Nov 20)
+
+`validate.py`, `transform.py`, `metrics.py` (one function per metric) and `run_pipeline.py` run end to end on the synthetic data, with 20 passing tests. Validation catches every planted problem. Results describe the generator's assumptions, not real teachers.
+
 ## Open items
 
 - [ ] Paste the teacher-field script, put the real teacher names in `CONFIG.teachers` (Apps Script only), run `resetSetup` + `setup`, and repeat the checks in the tutorial, including on a phone
 - [ ] From now on, apply code changes with `updateForms` (links stay the same); lock the forms before the pilot
 - [ ] Tell Dr. Drury about the new `teacher_id` field and the reply question in Form A
 - [ ] Later (dbt layer): daily one-tap reply links for unanswered requests; count a request as replied when a later stage exists without a reply time, with the time marked unknown
-- [ ] Write `validate.py` (rules in schema.md); it should catch every row in `data/*.issues.json`
+- [x] `validate.py`, `transform.py`, `metrics.py`, `run_pipeline.py` and tests (Nov 20)
 - [ ] Gate 1 status: confirm with Dr. Drury whether it was signed off
 - [ ] Teacher interviews (`docs/interviews.md` is still empty) and 3 written pilot agreements
 - [ ] Send the weekly status update

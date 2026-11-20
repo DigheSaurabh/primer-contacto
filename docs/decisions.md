@@ -2,6 +2,12 @@
 
 Newest first: what was decided and why.
 
+## Nov 20, 2026
+
+- **Pipeline in Python first, dbt next.** `validate.py`, `transform.py` and `metrics.py` follow metrics.md exactly so Gate 2 has working, tested metrics. The same definitions and tests carry over when the models move to dbt.
+- **Validation errors drop the row; warnings keep it.** Errors: missing required value, duplicate ID (first copy kept), dates out of order, stage after lost. Warnings: unknown channel, skipped stage, lost without reason, a note that looks like it contains an email or phone number.
+- **Every share is reported with its count**, because pilot samples are small.
+
 ## Nov 18, 2026
 
 - **Script changes are applied in place with `updateForms`.** Rebuilding the forms changed their links each time, so teachers would have had to redo their home-screen shortcuts. `updateForms` rewrites the existing forms and migrates the Requests tab by column name, so links and data survive every update. It refuses to run if a column would be dropped.
