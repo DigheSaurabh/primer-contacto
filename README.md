@@ -66,6 +66,17 @@ pip install -r requirements.txt
 pytest
 ```
 
+### Run the pipeline
+```bash
+python generate_synthetic.py      # 1. make sample data (data/synthetic_requests.csv)
+python run_pipeline.py            # 2-4. validate -> transform -> 12 metrics
+python run_pipeline.py --teacher T1 --lang es          # one teacher's view, summary in Spanish
+python run_pipeline.py --input data/synthetic_year.csv # 12 months, for seasonality
+python run_pipeline.py --out output                    # also save each metric as CSV
+python -m pytest                  # 1 test per metric, plus validation tests
+```
+To run it on the real sheet, download the Requests tab as CSV (File → Download → CSV), keep it outside `data/`, and pass it with `--input` and `--as-of`.
+
 ## Privacy
 No client names, phone numbers, emails, handles or street addresses are collected anywhere: not in the forms, the Sheet, the app, the logs or this repository. Requests are identified only by a short ID. The app processes uploads in memory and stores nothing.
 
