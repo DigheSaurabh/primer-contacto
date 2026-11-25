@@ -6,13 +6,16 @@
  * Requests tab with the same columns, so the forms stay a working backup and the Python pipeline
  * reads app data unchanged.
  *
- * Each teacher opens their own link: <web app URL>?t=<private code>. The code is looked up in the
- * private "Teachers" tab; a teacher only ever sees and changes their own requests.
+ * Teachers open their own link on GitHub Pages: <WEB.pageUrl>?t=<private code>. That page talks to
+ * this script through doPost (a small JSON API), so phones never open a script.google.com page,
+ * which fails in browsers signed into a Google account. The code is looked up in the private
+ * "Teachers" tab; a teacher only ever sees and changes their own requests.
  *
  * One-time setup (after setup() has created the sheet and forms):
  *   1. Run setupTeachers()      -> creates the Teachers tab with T1-T4 and private codes
  *   2. Deploy > New deployment > Web app: Execute as "Me", Who has access "Anyone"
- *   3. Run showTeacherLinks()   -> prints each teacher's personal link
+ *   3. Put the /exec URL in app/index.html (API); GitHub Pages serves it at WEB.pageUrl
+ *   4. Run showTeacherLinks()   -> prints each teacher's personal link
  * Steps with screenshots-level detail: docs/tutorial.md
  */
 
@@ -21,6 +24,8 @@ const WEB = {
   updatesTab: 'Updates',             // one row per change, so any update can be undone
   replyOverdueDays: 7,
   quoteFollowUpDays: 3,
+  // Where the teacher page is published (GitHub Pages). Links printed by showTeacherLinks use it.
+  pageUrl: 'https://dighesaurabh.github.io/primer-contacto/app/',
 };
 const TEACHER_COLUMNS = ['teacher_id', 'name', 'code', 'active'];
 const UPDATE_COLUMNS = ['at', 'teacher_id', 'request_id', 'action', 'detail', 'before_json'];
@@ -36,6 +41,31 @@ function doGet(e) {
   return tpl.evaluate()
     .setTitle('Primer Contacto')
     .addMetaTag('viewport', 'width=device-width, initial-scale=1');
+}
+
+/**
+ * JSON API for the GitHub Pages teacher page. The page sends a text/plain POST (no CORS preflight)
+ * with {action, code, ...}; the answer is {ok: true, data} or {ok: false, error: <code>}.
+ */
+function doPost(e) {
+  let out;
+  try {
+    const req = JSON.parse((e && e.postData && e.postData.contents) || '{}');
+    const code = String(req.code || '');
+    const actions = {
+      getState: () => getState(code),
+      addRequest: () => addRequest(code, req.form || {}),
+      updateStage: () => updateStage(code, req.request_id, req.stage, req.when, req.lost_reason, req.quoted_amount),
+      undoLast: () => undoLast(code, req.request_id),
+    };
+    if (!actions[req.action]) throw new Error('unknown_action');
+    out = { ok: true, data: actions[req.action]() };
+  } catch (err) {
+    const msg = String((err && err.message) || err);
+    out = { ok: false, error: /^[a-z_]+$/.test(msg) ? msg : 'server' };
+    if (out.error === 'server') Logger.log('API error: ' + msg);
+  }
+  return ContentService.createTextOutput(JSON.stringify(out)).setMimeType(ContentService.MimeType.JSON);
 }
 
 /** Everything the page needs for one teacher: their requests and the choice lists. */
@@ -168,12 +198,18 @@ function setupTeachers() {
 
 /** Prints every active teacher's personal link. Deploy the web app first. */
 function showTeacherLinks() {
-  // Run from the editor, getUrl() can return the /dev test address, which only works for you.
-  // Teachers need the /exec address of the deployed app.
+  // Run from the editor, getUrl() can return the /dev test address; the API needs /exec.
   const raw = ScriptApp.getService().getUrl();
-  if (!raw) throw new Error('Deploy the web app first: Deploy > New deployment > Web app.');
-  const url = raw.replace(/\/dev$/, '/exec');
-  teachers_().filter(t => t.active).forEach(t => Logger.log(`${t.id}  ${t.name}:  ${url}?t=${t.code}`));
+  if (raw) Logger.log('API address (goes in app/index.html): ' + raw.replace(/\/dev$/, '/exec'));
+  teachers_().filter(t => t.active).forEach(t => Logger.log(`${t.id}  ${t.name}:  ${WEB.pageUrl}?t=${t.code}`));
+}
+
+/** Gives every teacher a new private code at once (old links stop working), then prints the links. */
+function newCodesForAll() {
+  const tab = teachersSheet_();
+  const data = tab.getDataRange().getValues();
+  for (let i = 1; i < data.length; i++) if (data[i][0]) tab.getRange(i + 1, 3).setValue(newCode_());
+  showTeacherLinks();
 }
 
 /** Gives one teacher a new private code (use it if a link was shared by mistake). The old link stops working. */

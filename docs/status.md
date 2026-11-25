@@ -1,6 +1,6 @@
 # Status
 
-Updated Nov 25, 2026. Update this file at the end of every working session.
+Updated Nov 25, 2026 (afternoon). Update this file at the end of every working session.
 
 ## Where things stand
 
@@ -26,7 +26,7 @@ The one-link teacher app (`intake/WebApp.gs`, `intake/Index.html`) is built and 
 
 ## Open items
 
-- [ ] Deploy the web app and run the Part 5 test checklist, including on a phone
+- [ ] Put the /exec URL in `app/index.html`, turn on GitHub Pages, run `newCodesForAll`, and run the Part 5 checklist in normal Chrome on a phone
 - [ ] Tell Dr. Drury the two forms are becoming one personal link per teacher
 
 - [ ] Paste the teacher-field script, put the real teacher names in `CONFIG.teachers` (Apps Script only), run `resetSetup` + `setup`, and repeat the checks in the tutorial, including on a phone

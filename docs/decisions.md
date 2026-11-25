@@ -4,6 +4,8 @@ Newest first: what was decided and why.
 
 ## Nov 25, 2026
 
+- **The teacher page moved to GitHub Pages; Apps Script became a small JSON API.** On phones, Apps Script pages fail in browsers signed into a Google account ("Sorry, unable to open the file at this time"), which is most phones' Chrome. Brave, not signed in, worked, confirming the cause. The page (`app/index.html`) now lives on GitHub Pages and calls `doPost`; phones never open a script.google.com page. Same sheet, codes and pipeline.
+
 - **One personal link per teacher (Apps Script web app) replaces the two forms for teachers.** One screen shows what needs attention, new request, updates and undo. It writes to the same Requests tab and columns, so the forms stay a backup during the pilot and the pipeline is unchanged. Built for 4 teachers, designed to scale to 100 by adding rows to the Teachers tab.
 - **Teachers are recognized by a private code in their link, not by picking a name**, so no teacher can see another's requests. Names live only in the private Teachers tab. A leaked link is replaced with `newLinkFor`.
 - **Needs attention** = no reply yet, a price sent more than 3 days ago with no answer, or open more than 7 days.
