@@ -168,8 +168,11 @@ function setupTeachers() {
 
 /** Prints every active teacher's personal link. Deploy the web app first. */
 function showTeacherLinks() {
-  const url = ScriptApp.getService().getUrl();
-  if (!url) throw new Error('Deploy the web app first: Deploy > New deployment > Web app.');
+  // Run from the editor, getUrl() can return the /dev test address, which only works for you.
+  // Teachers need the /exec address of the deployed app.
+  const raw = ScriptApp.getService().getUrl();
+  if (!raw) throw new Error('Deploy the web app first: Deploy > New deployment > Web app.');
+  const url = raw.replace(/\/dev$/, '/exec');
   teachers_().filter(t => t.active).forEach(t => Logger.log(`${t.id}  ${t.name}:  ${url}?t=${t.code}`));
 }
 
