@@ -1,6 +1,6 @@
 # Status
 
-Updated Nov 20, 2026. Update this file at the end of every working session.
+Updated Nov 25, 2026. Update this file at the end of every working session.
 
 ## Where things stand
 
@@ -20,7 +20,14 @@ Updated Nov 20, 2026. Update this file at the end of every working session.
 
 `validate.py`, `transform.py`, `metrics.py` (one function per metric) and `run_pipeline.py` run end to end on the synthetic data, with 20 passing tests. Validation catches every planted problem. Results describe the generator's assumptions, not real teachers.
 
+## Web app (Nov 25)
+
+The one-link teacher app (`intake/WebApp.gs`, `intake/Index.html`) is built and checked against simulated Google services: each teacher sees only their own requests, validation, undo, and saving failures. It still needs to be deployed and tested in Google (tutorial Part 5).
+
 ## Open items
+
+- [ ] Deploy the web app and run the Part 5 test checklist, including on a phone
+- [ ] Tell Dr. Drury the two forms are becoming one personal link per teacher
 
 - [ ] Paste the teacher-field script, put the real teacher names in `CONFIG.teachers` (Apps Script only), run `resetSetup` + `setup`, and repeat the checks in the tutorial, including on a phone
 - [ ] From now on, apply code changes with `updateForms` (links stay the same); lock the forms before the pilot

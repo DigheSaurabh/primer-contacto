@@ -2,6 +2,14 @@
 
 Newest first: what was decided and why.
 
+## Nov 25, 2026
+
+- **One personal link per teacher (Apps Script web app) replaces the two forms for teachers.** One screen shows what needs attention, new request, updates and undo. It writes to the same Requests tab and columns, so the forms stay a backup during the pilot and the pipeline is unchanged. Built for 4 teachers, designed to scale to 100 by adding rows to the Teachers tab.
+- **Teachers are recognized by a private code in their link, not by picking a name**, so no teacher can see another's requests. Names live only in the private Teachers tab. A leaked link is replaced with `newLinkFor`.
+- **Needs attention** = no reply yet, a price sent more than 3 days ago with no answer, or open more than 7 days.
+- **Every app change is logged in an Updates tab**, which makes one-step undo possible.
+- **Runs on Saurabh's Google account for now** (Execute as: Me, access: Anyone).
+
 ## Nov 20, 2026
 
 - **Pipeline in Python first, dbt next.** `validate.py`, `transform.py` and `metrics.py` follow metrics.md exactly so Gate 2 has working, tested metrics. The same definitions and tests carry over when the models move to dbt.

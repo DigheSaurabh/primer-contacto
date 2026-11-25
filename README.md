@@ -38,7 +38,7 @@ primer-contacto/
 ├── app.py                  # Streamlit entry point (Week 4)
 ├── pages/                  # App pages (Week 4)
 ├── generate_synthetic.py   # Synthetic data generator
-├── intake/                 # Google Apps Script that builds the intake forms and sheet
+├── intake/                 # Google Apps Script: intake forms, sheet and the one-link teacher web app
 ├── validate.py             # Schema and data-quality checks (Week 2)
 ├── transform.py            # Wide → long stage-transition table (Week 3)
 ├── metrics.py              # One function per KPI (Week 3)

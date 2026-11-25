@@ -121,3 +121,70 @@ python generate_synthetic.py --clean            # no injected problems
 | `*.issues.json` | IDs of rows with deliberate problems (duplicate ID, dates out of order, a stage after Lost) that `validate.py` must catch |
 
 The same seed always gives the same file. No names or contact details are generated.
+
+---
+
+## Part 5: The one-link web app
+
+One personal link per teacher. On one screen a teacher sees what needs attention, logs new requests, updates stages and can undo a mistake, in English or Spanish. It saves to the **same Requests tab** with the same columns, so the forms stay a working backup and `run_pipeline.py` reads app data unchanged.
+
+### Set it up (once, about 10 minutes)
+
+Do this in the **same Apps Script project** as the forms (it reuses `Code.gs`).
+
+1. Make sure `Code.gs` is the latest `intake/setup_intake.gs` and you've run `updateForms` (Part 1).
+2. Click **+** next to **Files** → **Script**. Name it `WebApp` and paste in all of [`intake/WebApp.gs`](../intake/WebApp.gs).
+3. Click **+** → **HTML**. Name it exactly `Index` and paste in all of [`intake/Index.html`](../intake/Index.html).
+4. Click **Save**. Choose **setupTeachers** and click **Run**. Your sheet gets two new tabs:
+   - **Teachers** (private): `teacher_id`, `name`, `code`, `active`. Put real names in the `name` column here only. Never share this tab.
+   - **Updates**: one row per change, which is what makes **Undo** possible.
+5. **Deploy → New deployment.** Click the gear next to "Select type" → **Web app**.
+   - Description: `Primer Contacto`
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+   - Click **Deploy**, then approve the permissions.
+6. Choose **showTeacherLinks** and click **Run**. The log prints one personal link per teacher, ending in `?t=` and a private code.
+7. Open your own test link on your phone and add it to the home screen (same steps as for the forms).
+
+The top of the page shows a grey line from Google ("This application was created by a Google Apps Script user"). That's normal for Apps Script web apps.
+
+### What teachers see
+
+| Part | What it does |
+|---|---|
+| **Needs attention** | Requests with no reply yet, a price sent more than 3 days ago with no answer, or open more than 7 days |
+| **New request** | The same questions as Form A |
+| **Update** (on each request) | Tap what happened: Replied, Quoted, Booked, Session done, Invoiced, Paid or Lost (with a reason), and when |
+| **Undo last update** | Puts the request back exactly as it was before its last change |
+| **EN / ES** | Switches the language; the phone remembers the choice |
+
+If a save fails (weak signal), the page says so and keeps everything typed; tapping **Save** again retries.
+
+### Keep links private
+
+Anyone with a teacher's link can see and change that teacher's requests (never client names, since none are collected). If a link is shared by mistake, run `newLinkFor("T1")` with that teacher's code: the old link stops working and the log prints the new one.
+
+### Add a teacher
+
+Add a row to the Teachers tab (for example `T5`, their name), or run `newLinkFor("T5")`, which adds the row and creates the code. Then run `showTeacherLinks`.
+
+### When the code changes later
+
+1. Paste the new `WebApp.gs` / `Index.html` (and `Code.gs` if it changed) and click **Save**.
+2. **Deploy → Manage deployments** → pencil icon → **Version: New version** → **Deploy**.
+
+The links stay the same. Without step 2, teachers keep seeing the old version.
+
+### Test it (about 10 minutes)
+
+| # | Do this | Check |
+|---|---|---|
+| 1 | Open Teacher 1's link | Header shows Teacher 1; only T1's requests are listed |
+| 2 | Tap **ES**, then **EN** | Every label switches language |
+| 3 | **New request**: Instagram DM, Private session, English, Individual, replied **Not yet** | It appears under **Needs attention** with "No reply yet"; a new row in the Requests tab with teacher_id **T1** |
+| 4 | **New request**: Phone call, replied **Yes, just now** | replied_at equals the arrival time |
+| 5 | **Update** the first request → **Quoted**, price 90 | Shows "Quoted · $90"; the Requests row has quoted_at and $90 |
+| 6 | Tap **Undo last update** | Back to "Replied"; quoted_at and the price are cleared in the sheet |
+| 7 | Open Teacher 2's link | Teacher 1's requests are **not** shown |
+| 8 | Turn on airplane mode, try to save, turn it off, tap **Save** again | First a "could not save" message with your answers kept; then it saves |
+| 9 | Open a link with a wrong code (change one letter) | "This link is not active" |
