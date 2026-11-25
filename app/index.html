@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Primer Contacto</title>
+<style>
+:root{color-scheme:light;--bg:#f4f6f5;--panel:#fff;--ink:#17201d;--muted:#5d6b66;--line:#dde4e1;--teal:#1f6b5c;
+ --teal-ink:#fff;--amber:#a5530a;--amber-bg:#fdf1e4;--soft:#eef4f2;--red:#a33a2a;--red-bg:#fbeae7}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.app{max-width:520px;margin:0 auto;min-height:100vh;background:var(--panel)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+.top strong{font-size:17px}.top .who{font-size:13px;color:var(--muted)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;padding:8px 12px;min-height:40px;font:600 13px inherit;font-family:inherit;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--ink);color:#fff}
+section{padding:14px 16px;border-bottom:1px solid var(--line)}
+h2{font-size:15px;margin:0 0 8px;display:flex;justify-content:space-between;align-items:baseline}
+h2 .count{font-size:13px;color:var(--muted);font-weight:500}
+.need{background:var(--amber-bg)}.need h2{color:var(--amber)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.id{font-weight:600;font-size:14px}.meta{font-size:13px;color:var(--muted)}.why{font-weight:700;color:var(--amber)}
+.pill{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--soft);white-space:nowrap}
+.pill.lost{color:var(--red)}.pill.delivered_paid{color:var(--teal)}
+.btn{font:600 14px inherit;font-family:inherit;min-height:42px;padding:8px 14px;border-radius:10px;border:0;background:var(--teal);color:var(--teal-ink);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--teal);border:1px solid var(--teal)}
+.btn.link{background:none;color:var(--teal);padding:4px 0;min-height:32px;text-decoration:underline}
+.btn.wide{width:100%;min-height:48px}
+.btn:disabled{opacity:.55;cursor:wait}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+form{display:grid;gap:12px}
+label{font-size:13px;font-weight:600;display:grid;gap:4px}
+select,input,textarea{font:16px inherit;font-family:inherit;padding:10px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);min-height:46px;width:100%}
+textarea{min-height:70px;resize:vertical}
+.hint{font-size:12px;font-weight:400;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:600 14px inherit;font-family:inherit;min-height:44px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.panel{background:var(--soft);border-radius:14px;padding:12px;margin:6px 0 4px}
+.msg{margin:0;padding:12px 16px;font-size:14px;font-weight:600}
+.msg.ok{background:var(--teal);color:#fff}.msg.err{background:var(--red-bg);color:var(--red)}
+.empty{font-size:14px;color:var(--muted);margin:0}
+.center{padding:40px 20px;text-align:center}
+.loading{color:var(--muted);padding:30px 16px}
+</style>
+</head>
+<body>
+<div class="app" id="app"><p class="loading">Loading… / Cargando…</p></div>
+<script>
+{
+// The Apps Script web app's /exec address (Deploy > Manage deployments > Web app URL).
+const API = 'PASTE_WEB_APP_EXEC_URL_HERE';
+const CODE = (new URLSearchParams(location.search).get('t') || '').trim();
+let NAME = '';
+const T = {
+ en:{title:'Primer Contacto',need:'Needs attention',none:'Nothing waiting right now.',newTitle:'New request',logNew:'+ Log a new request',
+  all:'All my requests',update:'Update',close:'Close',save:'Save',saving:'Saving…',undo:'Undo last update',
+  no_reply:'No reply yet',follow_up_quote:'Price sent {d} days ago: follow up',open_long:'Open {d} days',
+  arrived:'When did it arrive?',channel:'Where did it come from?',type:'Request type',language:'Language',client:'Client type',
+  zip:'Event ZIP code (optional)',zipHint:'5 digits, never a street address',amount:'Price quoted, USD (optional)',
+  note:'What did they ask for? (optional)',noteHint:'No names, handles or phone numbers',replied:'Have you replied?',
+  repliedWhen:'When did you reply?',callHint:'A call you answered or an in-person talk counts as replied when it arrived.',
+  now:'Now',what:'What happened?',when:'When?',why:'Why was it lost?',choose:'Choose…',
+  savedNew:'Saved: {id} added.',savedStage:'Saved: {id} is now {s}.',undone:'Undone: {id} is back as it was.',
+  stage:{received:'Received',replied:'Replied',quoted:'Quoted',confirmed:'Booked',delivered:'Session done',invoiced:'Invoiced',paid:'Paid',lost:'Lost',delivered_paid:'Done and paid'},
+  err:{network:'Could not save. Check your signal and tap Save again. Nothing you typed was lost.',unknown_link:'This link is not active. Ask Saurabh for your personal link.',
+   future_date:'That time is in the future. Please check it.',before_received:'That time is before the request arrived.',bad_zip:'ZIP code must be 5 digits.',
+   bad_amount:'The price must be a number.',missing_field:'Please answer every required question.',not_found:'That request was not found.',nothing_to_undo:'There is nothing to undo for this request.'},
+  badLink:'This link is not active. Ask Saurabh for your personal link.'},
+ es:{title:'Primer Contacto',need:'Necesita atención',none:'Nada pendiente por ahora.',newTitle:'Nueva solicitud',logNew:'+ Registrar una solicitud',
+  all:'Todas mis solicitudes',update:'Actualizar',close:'Cerrar',save:'Guardar',saving:'Guardando…',undo:'Deshacer el último cambio',
+  no_reply:'Sin respuesta',follow_up_quote:'Precio enviado hace {d} días: haz seguimiento',open_long:'Abierta hace {d} días',
+  arrived:'¿Cuándo llegó?',channel:'¿Por dónde llegó?',type:'Tipo de solicitud',language:'Idioma',client:'Tipo de cliente',
+  zip:'Código postal del evento (opcional)',zipHint:'5 dígitos, nunca la dirección',amount:'Precio cotizado, USD (opcional)',
+  note:'¿Qué pidieron? (opcional)',noteHint:'Sin nombres, usuarios ni teléfonos',replied:'¿Ya respondiste?',
+  repliedWhen:'¿Cuándo respondiste?',callHint:'Una llamada que contestaste o una charla en persona cuenta como respondida al llegar.',
+  now:'Ahora',what:'¿Qué pasó?',when:'¿Cuándo?',why:'¿Por qué se perdió?',choose:'Elige…',
+  savedNew:'Guardado: {id} agregada.',savedStage:'Guardado: {id} ahora está {s}.',undone:'Deshecho: {id} volvió a como estaba.',
+  stage:{received:'Recibida',replied:'Respondida',quoted:'Cotizada',confirmed:'Reservada',delivered:'Sesión realizada',invoiced:'Facturada',paid:'Pagada',lost:'Perdida',delivered_paid:'Realizada y pagada'},
+  err:{network:'No se pudo guardar. Revisa tu señal y toca Guardar otra vez. No se perdió nada de lo que escribiste.',unknown_link:'Este enlace no está activo. Pide a Saurabh tu enlace personal.',
+   future_date:'Esa hora está en el futuro. Revísala.',before_received:'Esa hora es anterior a la llegada de la solicitud.',bad_zip:'El código postal debe tener 5 dígitos.',
+   bad_amount:'El precio debe ser un número.',missing_field:'Responde todas las preguntas obligatorias.',not_found:'No se encontró esa solicitud.',nothing_to_undo:'No hay nada que deshacer en esta solicitud.'},
+  badLink:'Este enlace no está activo. Pide a Saurabh tu enlace personal.'}
+};
+const FLOW = ['replied','quoted','confirmed','delivered','invoiced','paid','lost'];
+let lang = 'en', state = null, open = null, adding = false, msg = null;
+try { lang = localStorage.getItem('pc_lang') || (navigator.language || '').startsWith('es') && 'es' || 'en'; } catch (e) {}
+const t = (k, v) => String(T[lang][k]).replace(/\{(\w+)\}/g, (_, x) => v && v[x] !== undefined ? v[x] : '');
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const label = (list, code) => { const c = (state.choices[list] || []).find(x => x.code === code); return c ? c[lang] : (code || ''); };
+const opts = (list, req) => (req ? `<option value="">${esc(t('choose'))}</option>` : '') + state.choices[list].map(c => `<option value="${esc(c.code)}">${esc(c[lang])}</option>`).join('');
+const pad = n => String(n).padStart(2, '0');
+const localNow = () => { const d = new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`; };
+const status = r => r.done ? r.outcome : r.last_stage;
+const app = document.getElementById('app');
+
+// Sends one request to the Apps Script API. A text/plain POST avoids a CORS preflight.
+const ARGS = {
+  getState: () => ({}),
+  addRequest: a => ({form: a[1]}),
+  updateStage: a => ({request_id: a[1], stage: a[2], when: a[3], lost_reason: a[4], quoted_amount: a[5]}),
+  undoLast: a => ({request_id: a[1]}),
+};
+function call(fn, args, onOk, btn) {
+  if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = t('saving'); }
+  const done = () => { if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; } };
+  fetch(API, {method: 'POST', headers: {'Content-Type': 'text/plain;charset=utf-8'},
+              body: JSON.stringify(Object.assign({action: fn, code: CODE}, ARGS[fn](args)))})
+    .then(r => r.json())
+    .then(res => {
+      if (res.ok) { if (btn) btn.disabled = false; onOk(res.data); return; }
+      done();
+      if (res.error === 'unknown_link') { app.innerHTML = `<p class="center">${esc(T.en.badLink)}<br><br>${esc(T.es.badLink)}</p>`; return; }
+      showMsg('err', T[lang].err[res.error] || T[lang].err.network);   // keep the form as typed
+    })
+    .catch(() => { done(); if (!state) { app.innerHTML = `<p class="center">${esc(T[lang].err.network)}</p><p class="center"><button class="btn" data-retry>${esc(lang === 'es' ? 'Reintentar' : 'Try again')}</button></p>`; return; }
+      showMsg('err', T[lang].err.network); });
+}
+function showMsg(kind, text) {
+  let el = document.getElementById('msg');
+  if (!el) { el = document.createElement('p'); el.id = 'msg'; app.children[0].after(el); }
+  el.className = 'msg ' + kind; el.textContent = text; el.setAttribute('role', kind === 'err' ? 'alert' : 'status');
+  if (kind === 'err') el.scrollIntoView({block: 'nearest'});
+}
+
+function reqRow(r, inNeed) {
+  const isOpen = open === r.request_id;
+  const why = inNeed && r.attention ? ` · <span class="why">${esc(t(r.attention, {d: r.age_days}))}</span>` : '';
+  const right = r.done ? `<span class="pill ${esc(r.outcome)}">${esc(T[lang].stage[status(r)])}</span>`
+    : `<button class="btn ${isOpen ? 'ghost' : ''}" data-upd="${esc(r.request_id)}">${esc(t(isOpen ? 'close' : 'update'))}</button>`;
+  return `<div class="row"><div><div class="id">${esc(r.request_id)} <span class="meta">· ${esc(T[lang].stage[status(r)])}</span></div>
+    <div class="meta">${esc(label('channel', r.channel))} · ${esc(label('request_type', r.request_type))}${r.quoted_amount ? ' · $' + esc(r.quoted_amount) : ''}${why}</div>
+    ${r.can_undo ? `<button class="btn link" data-undo="${esc(r.request_id)}">${esc(t('undo'))}</button>` : ''}</div>${right}</div>
+    ${isOpen ? updateForm(r) : ''}`;
+}
+function updateForm(r) {
+  const next = FLOW.filter(s => s === 'lost' || !r[s + '_at']);
+  return `<form class="panel" data-form="upd" data-id="${esc(r.request_id)}">
+    <label>${esc(t('what'))}<span class="chips" role="group">${next.map((s, i) => `<button type="button" data-stage="${s}" aria-pressed="${i === 0}">${esc(T[lang].stage[s])}</button>`).join('')}</span></label>
+    <label>${esc(t('when'))}<input type="datetime-local" name="when" value="${localNow()}" max="${localNow()}" required></label>
+    <label data-show="quoted" ${next[0] === 'quoted' ? '' : 'hidden'}>${esc(t('amount'))}<input type="number" name="amount" min="0" step="1" inputmode="decimal"></label>
+    <label data-show="lost" hidden>${esc(t('why'))}<select name="reason">${opts('lost_reason', false)}</select></label>
+    <button class="btn wide" type="submit">${esc(t('save'))}</button></form>`;
+}
+function newForm() {
+  return `<form class="panel" data-form="new">
+    <label>${esc(t('arrived'))}<input type="datetime-local" name="received_at" value="${localNow()}" max="${localNow()}" required></label>
+    <label>${esc(t('channel'))}<select name="channel" required>${opts('channel', true)}</select></label>
+    <label>${esc(t('type'))}<select name="request_type" required>${opts('request_type', true)}</select></label>
+    <label>${esc(t('language'))}<select name="language" required>${opts('language', true)}</select></label>
+    <label>${esc(t('client'))}<select name="client_type" required>${opts('client_type', true)}</select></label>
+    <label>${esc(t('replied'))} <span class="hint">${esc(t('callHint'))}</span><select name="replied" required>${opts('replied', true)}</select></label>
+    <label data-show="earlier" hidden>${esc(t('repliedWhen'))}<input type="datetime-local" name="replied_at" max="${localNow()}"></label>
+    <label>${esc(t('zip'))} <span class="hint">${esc(t('zipHint'))}</span><input name="event_zip" inputmode="numeric" pattern="\\d{5}" maxlength="5"></label>
+    <label>${esc(t('amount'))}<input type="number" name="quoted_amount" min="0" step="1" inputmode="decimal"></label>
+    <label>${esc(t('note'))} <span class="hint">${esc(t('noteHint'))}</span><textarea name="note" maxlength="500"></textarea></label>
+    <button class="btn wide" type="submit">${esc(t('save'))}</button></form>`;
+}
+function render() {
+  if (!state) return;
+  const reqs = state.requests, need = reqs.filter(r => r.attention), rest = reqs.filter(r => !r.attention);
+  app.innerHTML = `
+   <div class="top"><div><strong>${esc(t('title'))}</strong><div class="who">${esc(NAME)}</div></div>
+     <div class="lang" role="group" aria-label="Language"><button data-lang="en" aria-pressed="${lang === 'en'}">EN</button><button data-lang="es" aria-pressed="${lang === 'es'}">ES</button></div></div>
+   ${msg ? `<p id="msg" class="msg ${msg[0]}" role="status">${esc(msg[1])}</p>` : ''}
+   <section class="need"><h2>${esc(t('need'))} <span class="count">${need.length}</span></h2>
+     ${need.length ? need.map(r => reqRow(r, true)).join('') : `<p class="empty">${esc(t('none'))}</p>`}</section>
+   <section><h2>${esc(t('newTitle'))}</h2>${adding ? newForm() : `<button class="btn wide" data-new>${esc(t('logNew'))}</button>`}</section>
+   <section><h2>${esc(t('all'))} <span class="count">${reqs.length}</span></h2>
+     ${rest.length ? rest.map(r => reqRow(r, false)).join('') : `<p class="empty">${esc(t('none'))}</p>`}</section>`;
+}
+function load() {
+  if (API.indexOf('PASTE_') === 0) { app.innerHTML = '<p class="center">This page is not connected yet: the web app address is missing in app/index.html.</p>'; return; }
+  if (!CODE) { app.innerHTML = `<p class="center">${esc(T.en.badLink)}<br><br>${esc(T.es.badLink)}</p>`; return; }
+  call('getState', [CODE], s => { state = s; NAME = s.teacher.name; render(); });
+}
+
+app.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.hasAttribute('data-retry')) { app.innerHTML = '<p class="loading">Loading… / Cargando…</p>'; load(); return; }
+  if (b.dataset.lang) { lang = b.dataset.lang; try { localStorage.setItem('pc_lang', lang); } catch (x) {} render(); return; }
+  if (b.dataset.upd) { open = open === b.dataset.upd ? null : b.dataset.upd; adding = false; msg = null; render(); return; }
+  if (b.hasAttribute('data-new')) { adding = true; open = null; msg = null; render(); return; }
+  if (b.dataset.undo) { const id = b.dataset.undo;
+    call('undoLast', [CODE, id], res => { state = res.state; open = null; msg = ['ok', t('undone', {id})]; render(); }, b); return; }
+  if (b.dataset.stage) {
+    b.parentNode.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    const f = b.closest('form');
+    f.querySelectorAll('[data-show]').forEach(el => el.hidden = el.dataset.show !== b.dataset.stage);
+  }
+});
+app.addEventListener('change', e => {
+  if (e.target.name === 'replied') {
+    const el = e.target.form.querySelector('[data-show=earlier]');
+    el.hidden = e.target.value !== 'earlier';
+    el.querySelector('input').required = e.target.value === 'earlier';
+  }
+});
+app.addEventListener('submit', e => {
+  e.preventDefault(); const f = e.target, btn = f.querySelector('[type=submit]');
+  const v = n => (f.elements[n] ? f.elements[n].value : '');
+  if (f.dataset.form === 'new') {
+    const data = {}; ['received_at','channel','request_type','language','client_type','replied','replied_at','event_zip','quoted_amount','note'].forEach(n => data[n] = v(n));
+    call('addRequest', [CODE, data], res => { state = res.state; adding = false; msg = ['ok', t('savedNew', {id: res.saved})]; render(); }, btn);
+  } else {
+    const stage = f.querySelector('[data-stage][aria-pressed=true]').dataset.stage, id = f.dataset.id;
+    call('updateStage', [CODE, id, stage, v('when'), v('reason'), v('amount')],
+      res => { state = res.state; open = null; msg = ['ok', t('savedStage', {id, s: T[lang].stage[stage]})]; render(); }, btn);
+  }
+});
+load();
+}
+</script>
+</body>
+</html>

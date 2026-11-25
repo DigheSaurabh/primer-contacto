@@ -128,6 +128,12 @@ The same seed always gives the same file. No names or contact details are genera
 
 One personal link per teacher. On one screen a teacher sees what needs attention, logs new requests, updates stages and can undo a mistake, in English or Spanish. It saves to the **same Requests tab** with the same columns, so the forms stay a working backup and `run_pipeline.py` reads app data unchanged.
 
+It has two parts:
+- **The page** teachers open: [`app/index.html`](../app/index.html), published free on **GitHub Pages** at `https://dighesaurabh.github.io/primer-contacto/app/?t=<code>`.
+- **The engine**: the Apps Script web app (`WebApp.gs`), which only reads and writes your sheet.
+
+The page lives on GitHub, not on `script.google.com`, because Apps Script pages fail with "Sorry, unable to open the file at this time" in phone browsers signed into a Google account (most phones' Chrome).
+
 ### Set it up (once, about 10 minutes)
 
 Do this in the **same Apps Script project** as the forms (it reuses `Code.gs`).
@@ -140,13 +146,15 @@ Do this in the **same Apps Script project** as the forms (it reuses `Code.gs`).
    - **Updates**: one row per change, which is what makes **Undo** possible.
 5. **Deploy → New deployment.** Click the gear next to "Select type" → **Web app**.
    - Description: `Primer Contacto`
-   - Execute as: **Me**
-   - Who has access: **Anyone**
-   - Click **Deploy**, then approve the permissions.
-6. Choose **showTeacherLinks** and click **Run**. The log prints one personal link per teacher, ending in `?t=` and a private code.
-7. Open your own test link on your phone and add it to the home screen (same steps as for the forms).
+   - Execute as: **Me** (never "User accessing the web app")
+   - Who has access: **Anyone** (not "Anyone with Google account")
+   - Click **Deploy**, approve the permissions, and copy the **Web app URL** (it ends in `/exec`).
+6. **Connect the page:** on GitHub, open `app/index.html`, click the pencil, replace `PASTE_WEB_APP_EXEC_URL_HERE` with that URL (keep the quotes), and commit to `main`.
+7. **Turn on GitHub Pages (once):** repo **Settings → Pages → Build and deployment**: Source **Deploy from a branch**, Branch **main**, folder **/ (root)** → **Save**. After a minute or two the page is live at `https://dighesaurabh.github.io/primer-contacto/app/`.
+8. Run **showTeacherLinks**. The log prints one personal link per teacher: `https://dighesaurabh.github.io/primer-contacto/app/?t=<code>`.
+9. Open your own test link on your phone in **normal Chrome** and add it to the home screen.
 
-The top of the page shows a grey line from Google ("This application was created by a Google Apps Script user"). That's normal for Apps Script web apps.
+Never click **New deployment** again after this: it creates a new `/exec` address and the page would lose its connection. To update the engine, use **Manage deployments → pencil → Version: New version → Deploy**.
 
 ### What teachers see
 
@@ -162,7 +170,7 @@ If a save fails (weak signal), the page says so and keeps everything typed; tapp
 
 ### Keep links private
 
-Anyone with a teacher's link can see and change that teacher's requests (never client names, since none are collected). If a link is shared by mistake, run `newLinkFor("T1")` with that teacher's code: the old link stops working and the log prints the new one.
+Anyone with a teacher's link can see and change that teacher's requests (never client names, since none are collected). If a link is shared by mistake, run `newLinkFor("T1")` with that teacher's code: the old link stops working and the log prints the new one. To replace every code at once (for example before the pilot starts), run `newCodesForAll`.
 
 ### Add a teacher
 
@@ -170,16 +178,16 @@ Add a row to the Teachers tab (for example `T5`, their name), or run `newLinkFor
 
 ### When the code changes later
 
-1. Paste the new `WebApp.gs` / `Index.html` (and `Code.gs` if it changed) and click **Save**.
-2. **Deploy → Manage deployments** → pencil icon → **Version: New version** → **Deploy**.
+- **The page** (`app/index.html`): a change merged into `main` goes live on GitHub Pages by itself within a few minutes.
+- **The engine** (`WebApp.gs`, `Code.gs`): paste the new code, click **Save**, then **Deploy → Manage deployments → pencil → Version: New version → Deploy**.
 
-The links stay the same. Without step 2, teachers keep seeing the old version.
+The links stay the same either way.
 
 ### Test it (about 10 minutes)
 
 | # | Do this | Check |
 |---|---|---|
-| 1 | Open Teacher 1's link | Header shows Teacher 1; only T1's requests are listed |
+| 1 | Open Teacher 1's link **in normal Chrome on a phone** | Header shows Teacher 1; only T1's requests are listed |
 | 2 | Tap **ES**, then **EN** | Every label switches language |
 | 3 | **New request**: Instagram DM, Private session, English, Individual, replied **Not yet** | It appears under **Needs attention** with "No reply yet"; a new row in the Requests tab with teacher_id **T1** |
 | 4 | **New request**: Phone call, replied **Yes, just now** | replied_at equals the arrival time |
@@ -188,3 +196,4 @@ The links stay the same. Without step 2, teachers keep seeing the old version.
 | 7 | Open Teacher 2's link | Teacher 1's requests are **not** shown |
 | 8 | Turn on airplane mode, try to save, turn it off, tap **Save** again | First a "could not save" message with your answers kept; then it saves |
 | 9 | Open a link with a wrong code (change one letter) | "This link is not active" |
+| 10 | Open the page with no internet, then reconnect and tap **Try again** | A clear "could not save" message, then the page loads |
